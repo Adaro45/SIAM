@@ -1,0 +1,26 @@
+.project-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
+}
+.image-grid .additional-image{
+    max-width: auto;
+    max-height: 300px;
+    margin: .2rem;
+    border-radius: 10px;
+}
+
+.project-detail h1 {
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.project-detail p {
+    font-size: 1.2rem;
+    text-align: justify;
+}
+.project-image{
+    height: 600px;
+}

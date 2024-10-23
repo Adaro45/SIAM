@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: django-doc
+Version: 1.1.0
+Summary: Automate Django RestFramework Documentation
+Home-page: https://github.com/digifyshop/django-doc
+Author: Digify
+Author-email: a.rajabnejad@digikala.com
+License: MIT
+Keywords: django automate documentation
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+- Django- Add `django_doc` to your `INSTALLED_APPS`
+- Run Python `python manage.py collectdoc`
