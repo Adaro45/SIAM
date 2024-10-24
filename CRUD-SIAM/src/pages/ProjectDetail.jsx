@@ -6,6 +6,7 @@ import '../Components/styles/ProjectDetail.css';
 const fetchDataFromApi = async (endpoint) => {
     const baseUrl = 'http://127.0.0.1:8000/SIAM'; // Ajusta según tu entorno
     const response = await fetch(`${baseUrl}/${endpoint}/`);
+    console.log(response.json)
     if (!response.ok) {
         throw new Error('Error al obtener los datos');
     }
@@ -51,13 +52,16 @@ const ProjectDetail = () => {
 };
 
 const ProjectDetailCard = ({ project }) => {
-    const { title, results, description, project_boss, resource, acron, measure } = project;
     const [bossName, setBossName] = useState('');
+    const [tecnicBoss, settecnicBossName] = useState('');
+    const { 
+        title, acron, date, results, description, princ_img, 
+        inv_area, investigators, project_boss, tecnic_boss, 
+        entitys, clients, resource 
+    } = project;
+    
     const baseUrl = 'http://127.0.0.1:8000/SIAM';
-
-    // Primer recurso como imagen destacada
-    const mainImageUrl = resource.length > 0 ? `${baseUrl}${resource[0].resource}` : '';
-
+    const clientEntities = entitys.filter(entity => clients.includes(entity.id));
     useEffect(() => {
         const fetchBossName = async () => {
             try {
@@ -73,52 +77,88 @@ const ProjectDetailCard = ({ project }) => {
                 setBossName('Error al cargar el nombre');
             }
         };
-
+    
         fetchBossName();
-    }, [project_boss]);
+    }, [setBossName]);
+
+    useEffect(() => {
+        const fetchBossName = async () => {
+            try {
+                const response = await fetch(`${baseUrl}/investigadors/${tecnic_boss}/`);
+                if (response.ok) {
+                    const tecnicBoss = await response.json();
+                    settecnicBossName(tecnicBoss.name);
+                } else {
+                    settecnicBossName('Investigador no encontrado');
+                }
+            } catch (error) {
+                console.error('Error al obtener el nombre del investigador jefe tecnico :', error);
+                settecnicBossName('Error al cargar el nombre');
+            }
+        };
+    
+        fetchBossName();
+    }, [settecnicBossName]);
 
     return (
         <div className="project-detail">
-            {/* Imagen destacada */}
-            {mainImageUrl ? (
-                <img src={mainImageUrl} alt={title} className="project-image" />
-            ) : (
-                <div className="placeholder-image">Imagen no disponible</div>
-            )}
-
-            {/* Detalles del proyecto */}
-            <div className="project-details">
-                <h4>{acron} - {title}</h4>
-                <p>{description}</p>
-                <p>{results}</p>
-                <p><strong>Investigador Jefe:</strong> {bossName}</p>
-
-                {/* Documento asociado */}
-                {document && (
-                    <div className="project-document">
-                        <h5>Mediciones del Proyecto:</h5>
-                        <a href={`${baseUrl}${measure}`} target="_blank" rel="noopener noreferrer">
-                            Descargar documento
-                        </a>
-                    </div>
-                )}
-
-                {/* Galería de recursos adicionales */}
-                {resource.length > 1 && (
+            <div>
+            {/* Imagen principal */}
+            <img src={`${baseUrl}${princ_img}`} alt={title} className="project-image" />
+                {/* Galería de imágenes adicionales */}
+                {resource.length > 0 && (
                     <div className="project-gallery">
                         <h5>Imágenes adicionales:</h5>
                         <div className="image-grid">
-                            {resource.slice(1).map((res, index) => (
+                            {resource.map((res, index) => (
                                 <img
                                     key={index}
                                     src={`${baseUrl}${res.resource}`}
-                                    alt={`Recurso ${index + 1}`}
+                                    alt={res.title}
                                     className="additional-image"
                                 />
                             ))}
                         </div>
                     </div>
                 )}
+                </div>
+            {/* Detalles del proyecto */}
+            <div className="project-details">
+                <h4>{acron} - {title}</h4>
+                <p><strong>Fecha:</strong> {date}</p>
+                <p><strong>Área:</strong> {inv_area}</p>
+                <p><strong>Descripción:</strong> {description}</p>
+                <p><strong>Resultados:</strong> {results}</p>
+                {/* Jefes */}
+                <p><strong>Investigador Jefe:</strong> {bossName}</p>
+                <p><strong>Jefe Técnico:</strong> {tecnicBoss}</p>
+                {/* Investigadores */}
+                <div className='investigators_card'>
+                <h5>Investigadores:</h5>
+                <ul>
+                    {investigators.map(inv => (
+                        <li key={inv.id}>{inv.name}</li>
+                    ))}
+                </ul>
+                </div>
+                <div className="entity_card">
+                {/* Entidades */}
+                <h5>Entidades Asociadas:</h5>
+                <ul>
+                    {entitys.map(ent => (
+                        <li key={ent.id}>{ent.name} ({ent.acron})</li>
+                    ))}
+                </ul>
+                </div>
+                <div className="client_card">
+                {/* Clientes */}
+                <h5>Clientes:</h5>
+                <ul>
+                    {clientEntities.map(client => (
+                        <li key={client.id}>{client.name} ({client.acron})</li>
+                        ))}
+                </ul>
+                </div>
             </div>
         </div>
     );

@@ -1,26 +1,181 @@
 .project-detail {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto;
     gap: 1rem;
-}
-.image-grid .additional-image{
-    max-width: auto;
-    max-height: 300px;
-    margin: .2rem;
+    max-width: 1200px;
+    padding: 1rem;
+    background-color: #f9f9f9;
     border-radius: 10px;
+    margin: 0.6rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
-
-.project-detail h1 {
-    font-size: 2rem;
+.project-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    grid-column: 1;
+}
+.project-gallery {
+    grid-column: 1;
     margin-top: 1rem;
 }
 
-.project-detail p {
+.project-gallery h5 {
+    margin-bottom: 0.5rem;
+    color: #333;
     font-size: 1.2rem;
-    text-align: justify;
 }
-.project-image{
-    height: 600px;
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.additional-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    grid-row: 1;
+    grid-column:2;
+}
+.investigators_card {
+    background-color: #f0f0f034;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+/* Estilo para el título */
+.investigators_card h5 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333333d8;
+    border-bottom: 2px solid #4CAF50;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+}
+
+/* Lista de investigadores horizontal */
+/* Lista en formato grid */
+.investigators_card ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Tarjetas simétricas */
+    gap: 0.5rem;
+
+}
+
+/* Estilo para cada investigador */
+.investigators_card li {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem;
+    font-weight: 500;
+}
+/* Contenedor para entidades y clientes */
+.entity_card, .client_card {
+    background-color: #f0f0f034;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos de secciones */
+.entity_card h5, .client_card h5 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333333d8;
+    border-bottom: 2px solid #4CAF50;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+}
+
+/* Lista en formato grid */
+.entity_card ul, .client_card ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px)); /* Tarjetas simétricas */
+    gap: 0.5rem;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Estilo para cada entidad o cliente */
+.entity_card li, .client_card li {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-weight: 500;
+}
+
+/* Responsive: En pantallas pequeñas */
+@media (max-width: 600px) {
+    .entity_card ul, .client_card ul {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}
+
+/* Responsive: Asegura que se ve bien en pantallas pequeñas */
+@media (max-width: 600px) {
+    .investigators_card ul {
+        grid-template-columns: 1fr; /* En pantallas pequeñas, se muestran en una columna */
+    }
+}
+.project-details h4 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 0.2rem;
+}
+.project-details ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.project-details li {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Media Queries para diferentes tamaños de pantalla */
+@media (min-width: 768px) {
+    .project-detail {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .project-details {
+        padding-left: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .project-detail {
+        grid-template-columns: 2fr 3fr;
+    }
 }
