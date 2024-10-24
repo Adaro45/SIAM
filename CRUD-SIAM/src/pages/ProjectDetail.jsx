@@ -125,32 +125,32 @@ const ProjectDetailCard = ({ project }) => {
             {/* Detalles del proyecto */}
             <div className="project-details">
                 <h4>{acron} - {title}</h4>
-                <p><strong>Fecha:</strong> {date}</p>
-                <p><strong>Área:</strong> {inv_area}</p>
-                <p><strong>Descripción:</strong> {description}</p>
-                <p><strong>Resultados:</strong> {results}</p>
+                <p className='project-details_pha'><strong>Fecha:</strong> {date}</p>
+                <p className='project-details_pha'><strong>Área:</strong> {inv_area}</p>
+                <p className='project-details_pha'><strong>Descripción:</strong> {description}</p>
+                <p className='project-details_pha'><strong>Resultados:</strong> {results}</p>
                 {/* Jefes */}
-                <p><strong>Investigador Jefe:</strong> {bossName}</p>
-                <p><strong>Jefe Técnico:</strong> {tecnicBoss}</p>
+                <p className='project-details_pha'><strong>Investigador Jefe:</strong> {bossName}</p>
+                <p className='project-details_pha'><strong>Jefe Técnico:</strong> {tecnicBoss}</p>
                 {/* Investigadores */}
                 <div className='investigators_card'>
-                <h5>Investigadores:</h5>
-                <ul>
+                <h5 className='project-details_pha'>Investigadores:</h5>
+                <ul >
                     {investigators.map(inv => (
                         <li key={inv.id}>{inv.name}</li>
                     ))}
                 </ul>
                 </div>
-                <div className="entity_card">
+                <div className="entity_card project-details_pha">
                 {/* Entidades */}
-                <h5>Entidades Asociadas:</h5>
+                <h5 className='project-details_pha' >Entidades Asociadas:</h5>
                 <ul>
                     {entitys.map(ent => (
                         <li key={ent.id}>{ent.name} ({ent.acron})</li>
                     ))}
                 </ul>
                 </div>
-                <div className="client_card">
+                <div className="client_card project-details_pha">
                 {/* Clientes */}
                 <h5>Clientes:</h5>
                 <ul>
