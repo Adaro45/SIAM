@@ -18,7 +18,7 @@ const ProjectCardList = () => {
         const data = await fetchDataFromApi('projects'); // Llama al endpoint
 
         if (isMounted) {
-          console.log('Proyectos obtenidos:', data); // Verifica los datos en consola
+          // console.log('Proyectos obtenidos:', data); // Verifica los datos en consola
           setProjects(data); // Guarda los proyectos en el estado
         }
       } catch (err) {

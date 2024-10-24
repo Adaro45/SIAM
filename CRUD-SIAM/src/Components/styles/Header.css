@@ -1,8 +1,12 @@
-*{
+/* General: Reset y fuentes */
+* {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin:0;
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
+/* Header Estilo Base */
 .header {
     position: relative;
     display: flex;
@@ -10,59 +14,169 @@
     align-items: center;
     padding: 1.5rem;
     background-color: #4968a7c3;
-    color: rgb(255, 255, 255);
-    padding-right: 0;
+    color: #fff;
 }
+
+/* Contenedor del Logo */
 .logo-container {
-padding: 0.3rem;
-margin:0.2rem;
-align-items: center;
-display: flex;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
-.logo-movement{
+
+.logo-movement {
     position: fixed;
     z-index: 1000;
     border-radius: 0.5rem;
 }
+
 .header.scrolled .logo-movement {
     opacity: 0.5;
     transition: opacity 1s ease-out;
-    
 }
+
 .logo {
+    
     width: 50px;
     height: 50px;
     object-fit: contain;
     border-radius: 5%;
 }
+
 .title {
     padding-left: 2rem;
-    font-weight: bold;
     margin-left: 2rem;
     margin-right: 0;
-}  
-.titleORG{
+    padding-right: 0;
+    font-weight: 400;
     color: #ffffff;
 }
-.nav {
-    margin: auto;
+.titleORG{
+    font-weight: 400;
 }
+/* Navegación Principal */
+.nav {
+    margin-left: auto;
+}
+
 .nav-list {
     display: flex;
     list-style: none;
-    gap: 3rem;
-}
-
-.nav-item {
-    margin-right: 20px;
+    gap: 2rem;
 }
 
 .nav-item a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .nav-item a:hover {
-    color:rgb(35, 63, 221);
+    color: rgb(35, 63, 221);
+}
+
+/* Menú Hamburger para pantallas pequeñas */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+.hamburger-menu{
+    display: none;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+
+    /* Mostrar menú hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Ocultar menú de navegación al inicio */
+    .nav {
+        display: none;
+    }
+
+    /* Mostrar menú al hacer clic en el hamburger */
+    .nav.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #4968a7c3;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+    .overlay{
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+        z-index: 1000;
+    }
+    .overlay.active{
+        display: block;
+    }
+    .hamburger-menu{
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 100%; /* Ocupa toda la altura de la pantalla */
+        background-color: #4968a76b;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        cursor: auto;
+        z-index: 1001;
+    }
+    .hamburger-menu div a {
+    color:#062a07;
+    }
+    .hamburger-menu div {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        background-color: #4968a7d8;
+        border-radius: 10px;
+        border-bottom: 1px solid #4CAF50;
+        padding-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+    .hamburger-menu :hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .hamburger-menu a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+    .nav-list {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-item {
+        margin-right: 0;
+    }
+
 }

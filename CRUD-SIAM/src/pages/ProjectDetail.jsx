@@ -26,7 +26,7 @@ const ProjectDetail = () => {
             try {
                 const data = await fetchDataFromApi(`projects/${id}`); // Llama al endpoint con el ID del proyecto
                 if (isMounted) {
-                    console.log('Proyecto obtenido:', data);
+                    // console.log('Proyecto obtenido:', data);
                     setProject(data);
                 }
             } catch (err) {
@@ -158,6 +158,23 @@ const ProjectDetailCard = ({ project }) => {
                         <li key={client.id}>{client.name} ({client.acron})</li>
                         ))}
                 </ul>
+                </div>
+                <div className="gallery_resposive">
+                {resource.length > 0 && (
+                    <div className="project-gallery-responsive">
+                        <h5>Imágenes adicionales:</h5>
+                        <div className="image-grid">
+                            {resource.map((res, index) => (
+                                <img
+                                    key={index}
+                                    src={`${baseUrl}${res.resource}`}
+                                    alt={res.title}
+                                    className="additional-image"
+                                />
+                                ))}
+                                </div>
+                        </div>
+                )}
                 </div>
             </div>
         </div>

@@ -10,6 +10,13 @@
     border-radius: 0.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    background: linear-gradient(
+      to bottom, 
+      #819dd41f 50px, 
+      #90ade627 100px, 
+      #738bbb25 50%, 
+      #c3fa9b15 100%
+  );
 }
 .project-details_pha{
     font-size-adjust: .65;
@@ -165,20 +172,32 @@
     font-size: 1rem;
     color: #555;
 }
-
-/* Media Queries para diferentes tamaños de pantalla */
-@media (min-width: 768px) {
-    .project-detail {
-        grid-template-columns: 1fr 2fr;
-    }
-
-    .project-details {
-        padding-left: 1rem;
-    }
+.gallery_resposive{
+display: none;
 }
-
-@media (min-width: 1024px) {
+@media(max-width: 768px){
     .project-detail {
-        grid-template-columns: 2fr 3fr;
+    display: block;
     }
+    .project-image {
+        min-height: 250px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .project-gallery {
+        display: none;
+    }
+    .gallery_resposive{
+        display: grid;
+        grid-column: 1;
+        margin-top: 1rem;
+    }
+    .project-gallery-responsive h5 {
+        margin-bottom: 0.5rem;
+        color: #333;
+        font-size: 1.2rem;
+    }
+
 }

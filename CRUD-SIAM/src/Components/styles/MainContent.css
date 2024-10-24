@@ -1,3 +1,4 @@
+
 /* src/components/MainContent.css */
 .main-content {
     position: relative;
@@ -64,4 +65,39 @@
     grid-template-columns: repeat(3, minmax(300px, 1fr));
     gap: 20px;
   }
-  
+  @media (max-width: 768px) {
+    /* Contenido principal */
+    .main-content {
+        padding: 1rem;
+    }
+
+    /* Apila los elementos uno debajo del otro */
+    .project-list {
+        grid-template-columns: 1fr; /* Una columna */
+        gap: 15px;
+    }
+
+    /* Ajustar la imagen para que no ocupe tanto espacio */
+    .project-image {
+        height: 150px;
+    }
+
+    /* Alinear las tarjetas y texto al centro */
+    .project-card {
+        text-align: center;
+    }
+
+    .project-details h4 {
+        font-size: 1.1rem;
+    }
+
+    .institution-info {
+        margin-bottom: 20px;
+    }
+
+    /* Asegura que la galería se muestre al final */
+    .project-gallery {
+        order: 2; /* Se coloca al final del flujo */
+        margin-top: 20px;
+    }
+}
