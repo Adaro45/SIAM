@@ -1,10 +1,11 @@
 import './styles/Header.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setMenuOpen] = useState(false);
+    const isMounted = useRef(false);
 const closeMenu = () => setMenuOpen(false);
     const toggleMenu = (state) => {
         if (typeof state === 'boolean') {
@@ -16,16 +17,25 @@ const closeMenu = () => setMenuOpen(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50); // Detecta si ha hecho scroll más de 50px
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            setIsScrolled(scrollTop > 50);
+            isMounted.current = true; // Marcar que ya se registró el listener
         };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+
+        if (!isMounted.current) {
+            window.addEventListener('scroll', handleScroll);
+        }
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
+
     return (
         <>
-            <header className={`header ${isScrolled ? 'scrolled' :''}`}>
-                <div className="logo-container">
-                    <div className='logo-movement'>
+            <header className="header">
+                <div className={`logo-container ${isScrolled ? 'scroll':''}`}>
+                    <div className="logo-movement">
                         <img src="/IconCEAC.png" className="logo" />
                     </div>
                     <h1 className="title">SIAM</h1>
