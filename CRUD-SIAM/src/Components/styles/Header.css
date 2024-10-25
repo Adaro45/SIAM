@@ -22,21 +22,32 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+
 }
+
 .logo-movement {
     position: fixed;
     z-index: 1000;
     border-radius: 0.5rem;
+
 }
-/* .scroll{/////////ARRRREGLAAAAAAR EL SCROLLLLLLLLLLL/////////////////////////////////////////////////////// */
-    /* transition: opacity 0.3s ease, transform 0.3s ease; */
-    /* width: 1000px; */
-/* } */
 .logo {
     width: 50px;
     height: 50px;
     object-fit: contain;
     border-radius: 5%;
+}
+@media screen {
+    .scroll{
+        opacity: 0.3;
+        transform: translate(-15px,-10px);
+        transition: opacity 0.8s;
+        transition: transform 0.8s;
+    }
+    .scroll .logo{
+        border-radius: 100%;
+        transition: border-radius 1s;
+    }
 }
 
 .title {

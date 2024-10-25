@@ -34,8 +34,8 @@ const closeMenu = () => setMenuOpen(false);
     return (
         <>
             <header className="header">
-                <div className={`logo-container ${isScrolled ? 'scroll':''}`}>
-                    <div className="logo-movement">
+                <div className="logo-container">
+                    <div className={`logo-movement ${isScrolled ? 'scroll' : ''}`}>
                         <img src="/IconCEAC.png" className="logo" />
                     </div>
                     <h1 className="title">SIAM</h1>
