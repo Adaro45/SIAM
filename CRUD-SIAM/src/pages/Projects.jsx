@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ProjectCardList from '../Components/ProjectCard.jsx'; // Importar la lista de tarjetas
 import "../Components/styles/ProjectPage.css";
+import ProjectCard from '../Components/ProjectCard';
 
 const ProjectsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -9,13 +9,14 @@ const ProjectsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Fetch inicial para obtener los proyectos
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await fetch('http://127.0.0.1:8000/SIAM/projects/');
         const data = await response.json();
         setProjects(data);
-        setFilteredProjects(data);
+        setFilteredProjects(data); // Mostrar todos los proyectos al inicio
       } catch (error) {
         setError('Error al obtener los proyectos.');
         console.error('Error al obtener los proyectos:', error);
@@ -27,27 +28,31 @@ const ProjectsPage = () => {
     fetchProjects();
   }, []);
 
+  const handleInputChange = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+
+    if (term === '') {
+      // Si el input está vacío, restaurar la lista completa
+      setFilteredProjects(projects);
+    }
+  };
+
   const handleSearch = () => {
     const filtered = projects.filter((project) =>
       project.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    console.log(filtered)
+    );
     setFilteredProjects(filtered);
   };
 
-  // Manejo del evento para el input
-  const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error}</p>;
-
+  console.log(filteredProjects)
   return (
     <div className="projects-page">
-      <header className="page-header">
+      <div className="page-header">
         <h1>Explora Nuestros Proyectos</h1>
-        <p>Descubre los proyectos más recientes y destacados.</p>
         <div className="search-container">
           <input
             type="text"
@@ -58,11 +63,12 @@ const ProjectsPage = () => {
           />
           <button onClick={handleSearch} className="search-button">Buscar</button>
         </div>
-      </header>
-
-      <div className="projects-grid">
-        <ProjectCardList projects={filteredProjects} />
       </div>
+      <div className="project-list">
+      {filteredProjects.map((project) => (
+      <ProjectCard key={project.id} project={project} />
+    ))}
+    </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@
     margin: 0 auto;
     padding: 2rem;
 }
+
 .page-header {
     text-align: center;
     margin-bottom: 2rem;
@@ -30,11 +31,16 @@
     border: none;
     margin-top: 1rem;
 }
+
 .search-input:focus {
-  outline: none; /* Elimina el borde negro predeterminado */
-  border: 1px solid rgba(74, 145, 226, 0.337); /* Opcional: Añade un borde con color personalizado */
-  box-shadow: 0 0 8px rgba(74, 144, 226, 0.5); /* Añade un efecto de enfoque */
+    outline: none;
+    /* Elimina el borde negro predeterminado */
+    border: 1px solid rgba(74, 145, 226, 0.337);
+    /* Opcional: Añade un borde con color personalizado */
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+    /* Añade un efecto de enfoque */
 }
+
 .search-button {
     padding: 5px 10px;
     background-color: #007bff;
@@ -42,8 +48,31 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .search-button:hover {
+}
+
+.search-button:hover {
     background-color: #0056b3;
-  }
+}
+
+/* ProjectPage.css */
+.projects-page {
+    padding: 20px;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.project-card {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
