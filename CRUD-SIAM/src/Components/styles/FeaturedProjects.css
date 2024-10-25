@@ -1,0 +1,47 @@
+
+.featured-projects-featured {
+    display: flex;
+    flex-direction: row; /* Cambia a fila para colocar tarjetas lado a lado */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en filas múltiples si hay más de dos */
+    justify-content: center; /* Centra las tarjetas en el contenedor */
+}
+
+.project-card-featured {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    border-radius: 8px;
+    background: #ffffffe6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Establece un ancho fijo para las tarjetas */
+    margin: 1rem; /* Espacio entre tarjetas */
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom right, #5173b70e, #66c3eb20 50%, #95ca6f3a);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card-featured:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.project-image-featured {
+    width: 300px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    object-fit: cover; /* Asegura que la imagen mantenga su aspecto */
+}
+
+.project-details-featured {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el texto verticalmente */
+}
+
+.project-details-featured h4,
+.project-details-featured p {
+    margin: 0;
+    padding: 0.5rem 0; /* Espaciado entre los elementos de texto */
+}
+.project-details-featured h4{
+border-bottom: 2px solid #4CAF50;
+}

@@ -1,8 +1,8 @@
 // src/components/MainContent.jsx
 import './styles/MainContent.css';
-import ProjectCard from './ProjectCard';
 import HeroSection from './HeroSection';
 import Presentacion from './Presentacion';
+import FeaturedProjects from './FeaturedProjects';
 const MainContent = () => {
     return (
         <main className="main-content">
@@ -12,7 +12,7 @@ const MainContent = () => {
             <section className="intitucion-present">
                 <Presentacion/>
             </section>
-            <ProjectCard/>
+            <FeaturedProjects/>
         </main>
     );
 };
