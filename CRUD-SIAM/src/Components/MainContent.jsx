@@ -3,16 +3,19 @@ import './styles/MainContent.css';
 import HeroSection from './HeroSection';
 import Presentacion from './Presentacion';
 import FeaturedProjects from './FeaturedProjects';
+
 const MainContent = () => {
     return (
         <main className="main-content">
-            <section className="institution-info">
-            <HeroSection/>
+            <header className="institution-header">
+                <HeroSection />
+            </header>
+            <section className="institution-present">
+                <Presentacion />
             </section>
-            <section className="intitucion-present">
-                <Presentacion/>
+            <section className="featured-projects">
+                <FeaturedProjects />
             </section>
-            <FeaturedProjects/>
         </main>
     );
 };

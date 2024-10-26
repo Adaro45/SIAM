@@ -1,4 +1,3 @@
-// ProjectCard.js
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/ProjectCard.css';
@@ -8,7 +7,7 @@ const ProjectCard = ({ project }) => {
   const [bossName, setBossName] = useState('');
   const navigate = useNavigate();
 
-  const baseUrl = 'http://127.0.0.1:8000/SIAM'; // Ajusta según tu entorno
+  const baseUrl = 'http://127.0.0.1:8000/SIAM';
   const imageUrl = resource.length > 0 ? `${baseUrl}${resource[0].resource}` : '';
 
   const handleClick = () => {
@@ -37,15 +36,23 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div className="project-card" onClick={handleClick}>
-      {imageUrl ? (
-        <img src={imageUrl} alt={title} className="project-image" />
-      ) : (
-        <div className="placeholder-image">Imagen no disponible</div>
-      )}
+      <div className="project-image-container">
+        {imageUrl ? (
+          <img src={imageUrl} alt={title} className="project-image" />
+        ) : (
+          <div className="placeholder-image">Imagen no disponible</div>
+        )}
+      </div>
       <div className="project-details">
-        <h4>{acron} - {title}</h4>
-        <p>{description}</p>
-        <p><strong>Investigador Jefe:</strong> {bossName}</p>
+        <div className="project-header">
+          <h4 className="project-acron">{acron}</h4>
+          <div className="acron-underline"></div>
+          <h5 className="project-title">{title}</h5>
+        </div>
+        <p className="project-description">{description}</p>
+        <p className="project-boss">
+          <strong>Investigador Jefe:</strong> {bossName}
+        </p>
       </div>
     </div>
   );

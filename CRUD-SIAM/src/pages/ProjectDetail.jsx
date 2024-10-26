@@ -104,7 +104,7 @@ const ProjectDetailCard = ({ project }) => {
         <div className="project-detail">
             <div>
             {/* Imagen principal */}
-            <img src={`${baseUrl}${princ_img}`} alt={title} className="project-image" />
+            <img src={`${baseUrl}${princ_img}`} alt={title} className="project-image-detail" />
                 {/* Galería de imágenes adicionales */}
                 {resource.length > 0 && (
                     <div className="project-gallery">

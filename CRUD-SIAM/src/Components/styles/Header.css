@@ -12,9 +12,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem;
-    background-color: #4968a7c3;
-    color: #fff;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 /* Contenedor del Logo */
@@ -59,7 +59,8 @@
     color: #ffffff;
 }
 .titleORG{
-    font-weight: 400;
+    font-weight: 800;
+    color: var(--text-color);
 }
 /* Navegación Principal */
 .nav {
@@ -70,6 +71,7 @@
     display: flex;
     list-style: none;
     gap: 2rem;
+    padding-bottom: 0;
 }
 
 .nav-item a {
@@ -78,9 +80,8 @@
     font-weight: bold;
     transition: color 0.3s ease;
 }
-
 .nav-item a:hover {
-    color: rgb(35, 63, 221);
+    color: var(--text-color);
 }
 
 /* Menú Hamburger para pantallas pequeñas */
@@ -103,7 +104,9 @@
 
 /* Responsive Design */
 @media (max-width: 800px) {
-
+    .body{
+        background: none;
+    }
     /* Mostrar menú hamburger */
     .hamburger {
         display: flex;
@@ -119,7 +122,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        background-color: #4968a7c3;
+        background-color: ;
         position: absolute;
         top: 100%;
         right: 0;
@@ -145,7 +148,7 @@
         right: 0;
         width: 250px;
         height: 100%; /* Ocupa toda la altura de la pantalla */
-        background-color: #4968a76b;
+        background-color: rgba(40, 162, 164, 0.247);
         display: flex;
         flex-direction: column;
         padding: 2rem 1rem;
@@ -155,16 +158,17 @@
         z-index: 1001;
     }
     .hamburger-menu div a {
-    color:#062a07;
+    color:#fff;
     }
     .hamburger-menu div {
         display: flex;
         justify-content: center;
         align-content: center;
+        color: #b3b3b3;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-        background-color: #4968a7d8;
+        background-color: var(--text-color);
         border-radius: 10px;
-        border-bottom: 1px solid #4CAF50;
+        border-bottom: 1px solid var(--secondary-color);
         padding-bottom: 0.5rem;
         font-size: 1.2rem;
     }
@@ -182,8 +186,6 @@
         gap: 1rem;
     }
 
-    .nav-item {
-        margin-right: 0;
-    }
+
 
 }

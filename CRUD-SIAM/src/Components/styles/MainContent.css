@@ -1,72 +1,69 @@
+/* src/styles/MainContent.css */
 .main-content {
   position: relative;
-  margin: auto;
-  padding: 0.8rem;
-  max-width: 95%; /* Limitar ancho para que no desborde */
+  max-width: 1400px;
+  margin: var(--spacing-md) auto; /* Usar variable de espaciado */
+  padding: var(--spacing-sm) var(--spacing-lg); /* Espaciado estándar */
+  border-radius: 6px;
+  transition: box-shadow 0.3s ease-in-out;
+  background-color: rgba(221, 221, 221, 0.25); /* Color de fondo más ligero */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añadir sombra sutil */
+}
+
+.institution-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg); /* Usar variable de espaciado */
+}
+
+.institution-present {
+  margin-bottom: var(--spacing-lg); /* Espaciado consistente */
+}
+
+.featured-projects {
+  /* Estilos específicos para la sección de proyectos destacados */
+  margin-top: var(--spacing-md);
 }
 
 .project-list {
   justify-items: center;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Mejor adaptación a pantallas más pequeñas */
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md); /* Espaciado estándar */
 }
 
 .project-card {
   text-align: justify;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
-  border-radius: 6px; /* Redondeo más sutil */
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Sombra más ligera */
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.15s ease-in-out;
   max-width: 100%;
 }
 
 .project-card:hover {
-  transform: scale(1.03); /* Menos exagerado */
+  transform: scale(1.03); /* Escalado sutil */
 }
 
 .project-image {
   width: 100%;
-  height: 180px; /* Reducir altura */
+  height: 180px;
   object-fit: cover;
 }
 
-.project-details h4 {
-  font-size: 1rem; /* Escalado menor */
-  margin: 0 0 6px;
-  font-weight: 600;
-}
-
-.project-details p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.institution-info {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.institution-info h2 {
-  font-size: 1.8rem;
-  margin-bottom: 8px;
-}
-
 .projects h3 {
-  margin-bottom: 18px;
+  margin-bottom: var(--spacing-sm); /* Usar variable de espaciado */
 }
 
 @media (max-width: 768px) {
   .main-content {
-      padding: 0.5rem;
+      padding: var(--spacing-sm);
   }
 
   .project-list {
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: var(--spacing-sm); /* Ajustar para móviles */
   }
 
   .project-image {
@@ -78,15 +75,15 @@
   }
 
   .project-details h4 {
-      font-size: 1rem;
+      font-size: 1rem; /* Ajustar el tamaño de fuente */
   }
 
   .institution-info {
-      margin-bottom: 18px;
+      margin-bottom: var(--spacing-sm); /* Usar variable de espaciado */
   }
 
   .project-gallery {
       order: 2;
-      margin-top: 18px;
+      margin-top: var(--spacing-sm);
   }
 }

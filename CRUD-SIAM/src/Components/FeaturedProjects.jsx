@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchDataFromApi } from '../services/apiService';
-import './styles/FeaturedProjects.css'; // Opcional: Estilos para este componente
+import './styles/FeaturedProjects.css';
 
 const FeaturedProjects = () => {
     const [featuredProjects, setFeaturedProjects] = useState([]);
@@ -10,13 +10,13 @@ const FeaturedProjects = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        let isMounted = true; // Evita fugas de memoria si el componente se desmonta
+        let isMounted = true;
 
         const fetchProjects = async () => {
             try {
-                const data = await fetchDataFromApi('projects'); // Llama a la API
+                const data = await fetchDataFromApi('projects');
                 if (isMounted && Array.isArray(data)) {
-                    setFeaturedProjects(data.slice(data.length - 2, data.length)); // Solo toma los 2 recentes
+                    setFeaturedProjects(data.slice(-2)); // Solo toma los 2 recientes
                 }
             } catch (err) {
                 if (isMounted) setError('Error al obtener los proyectos destacados.');
@@ -25,31 +25,34 @@ const FeaturedProjects = () => {
             }
         };
 
-        fetchProjects(); // Ejecuta la función
+        fetchProjects();
 
         return () => {
-            isMounted = false; // Limpieza al desmontar
+            isMounted = false;
         };
     }, []);
-    const handleClick = (projectId) => {
-        navigate(`/projects/${projectId}`); // Navega al detalle del proyecto
-    };
-    // Renderiza según el estado
-    if (loading) return <p>Cargando proyectos destacados...</p>;
-    if (error) return <p>{error}</p>;
-    if (!featuredProjects.length) return <p>No hay proyectos destacados.</p>;
 
+    const handleClick = (projectId) => {
+        navigate(`/projects/${projectId}`);
+    };
+
+    if (loading) return <p>Cargando proyectos destacados...</p>;
+    if (error) return <div>
+        <p>{error}</p>
+        <button onClick={() => fetchProjects()}>Reintentar</button>
+    </div>;
+    if (!featuredProjects.length) return <p>No hay proyectos destacados.</p>;
 
     return (
         <>
-            <h1 className="projects-featured">Proyectos mas Recientes</h1>
+            <h1 className="projects-featured">Proyectos más Recientes</h1>
             <div className="featured-projects-featured">
                 {featuredProjects.map((project) => (
-                    <div key={project.id} className="project-card-featured" onClick={()=>handleClick(project.id)}>
+                    <div key={project.id} className="project-card-featured" onClick={() => handleClick(project.id)} aria-label={`Ir a detalles de ${project.title}`}>
                         {project.resource.length > 0 ? (
                             <img
                                 src={`http://127.0.0.1:8000/SIAM${project.resource[0].resource}`}
-                                alt={project.title}
+                                alt={`Imagen de ${project.title}`}
                                 className="project-image-featured"
                             />
                         ) : (
@@ -62,7 +65,8 @@ const FeaturedProjects = () => {
                     </div>
                 ))}
             </div>
-        </>);
+        </>
+    );
 };
 
 export default FeaturedProjects;

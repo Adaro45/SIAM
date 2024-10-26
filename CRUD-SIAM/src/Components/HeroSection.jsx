@@ -1,19 +1,29 @@
-// src/components/HeroSection.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles/HeroSection.css'; // Archivo CSS específico
+
 const HeroSection = () => {
+    useEffect(() => {
+        const buttons = document.querySelectorAll('.cta-button');
+        buttons.forEach((button, index) => {
+            button.style.transitionDelay = `${index * 100}ms`; // Efecto de aparición
+            button.classList.add('fade-in');
+        });
+    }, []);
+
     return (
-        <>
         <section className="hero-section">
             <div className="hero-content">
-            <img src="/HeroImage.jpeg"/>
+                <img src="/HeroImage.jpeg" alt="Hero" />
+                <div className="text-container">
+                    <h1 className="hero-title">Bienvenidos a Nuestro Centro</h1>
+                    <div className="cta-buttons">
+                        <CTAButton text="Nuestros Proyectos" link="/projects" />
+                        <CTAButton text="Nuestros Historia" link="/historia" />
+                        <CTAButton text="Contáctanos" link="/contact" />
+                    </div>
+                </div>
             </div>
         </section>
-                <div className="cta-buttons">
-                    <CTAButton text="Nuestros Proyectos" link="/projects" />
-                    <CTAButton text="Contáctanos" link="/contact" />
-                </div>
-                </>
     );
 };
 
@@ -23,5 +33,6 @@ const CTAButton = ({ text, link }) => (
     </a>
 );
 
-
 export default HeroSection;
+
+
