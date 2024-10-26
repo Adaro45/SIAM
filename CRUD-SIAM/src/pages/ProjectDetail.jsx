@@ -61,7 +61,7 @@ const ProjectDetailCard = ({ project }) => {
     } = project;
     
     const baseUrl = 'http://127.0.0.1:8000/SIAM';
-    const clientEntities = entitys.filter(entity => clients.includes(entity.id));
+
     useEffect(() => {
         const fetchBossName = async () => {
             try {
@@ -154,7 +154,7 @@ const ProjectDetailCard = ({ project }) => {
                 {/* Clientes */}
                 <h5>Clientes:</h5>
                 <ul>
-                    {clientEntities.map(client => (
+                    {clients.map(client => (
                         <li key={client.id}>{client.name} ({client.acron})</li>
                         ))}
                 </ul>

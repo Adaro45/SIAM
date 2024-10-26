@@ -68,6 +68,7 @@ class ResourcesSerializer(serializers.ModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     investigators = InvestigatorSerializer(many=True)
     entitys = EntitySerializer(many=True)
+    clients = EntitySerializer(many=True)
     resource = ResourcesSerializer(many=True)
     princ_img = Base64ImageField(required=False)
     class Meta:

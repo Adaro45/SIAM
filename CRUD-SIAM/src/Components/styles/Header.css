@@ -122,7 +122,6 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        background-color: ;
         position: absolute;
         top: 100%;
         right: 0;
@@ -185,7 +184,5 @@
         flex-direction: column;
         gap: 1rem;
     }
-
-
 
 }
