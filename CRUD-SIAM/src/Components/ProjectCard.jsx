@@ -35,6 +35,8 @@ const ProjectCard = ({ project }) => {
   }, [project_boss]);
 
   return (
+      <div className='project-card-container'>
+      <div className='project-date'>Fecha: {project.date}</div>
     <div className="project-card" onClick={handleClick}>
       <div className="project-image-container">
         {imageUrl ? (
@@ -54,6 +56,7 @@ const ProjectCard = ({ project }) => {
           <strong>Investigador Jefe:</strong> {bossName}
         </p>
       </div>
+    </div>
     </div>
   );
 };

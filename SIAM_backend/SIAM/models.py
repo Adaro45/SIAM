@@ -11,6 +11,7 @@ from django.db import models
 #     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='normal')
 #     def __str__(self):
 #         return self.username
+
 class Investigator(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=50)

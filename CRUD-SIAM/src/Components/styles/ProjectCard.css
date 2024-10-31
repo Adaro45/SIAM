@@ -19,12 +19,16 @@
 
 }
 
-/* Efecto hover para destacar la tarjeta */
-.project-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.project-date{
+  padding: 5px;
+  display: inline-block;
+  text-align: center;
+  background:var(--gradient);
+  color: var(--text-color);
+  border-radius: 4px;
+  margin: 4px 0 0 4px ;
+}    
 
-}
 
 /* Contenedor de la imagen, alineada a la izquierda */
 .project-image-container {

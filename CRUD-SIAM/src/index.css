@@ -2,6 +2,7 @@
   --primary-color: #28a2a4;
   --secondary-color: #7bed8c;
   --text-color: #264653;
+  --gradient: linear-gradient(to bottom right, #5173b74f, #66c3eb69 50%, #95ca6f4e);
   --font-family: 'Roboto', sans-serif;
   --padding-standard: 16px;
   --margin-standard: 24px;

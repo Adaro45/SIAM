@@ -10,17 +10,17 @@
     border-radius: 0.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    background: linear-gradient(
-      to bottom, 
-      #819dd41f 50px, 
-      #90ade627 100px, 
-      #738bbb25 50%, 
-      #c3fa9b15 100%
-  );
+    background: linear-gradient(to bottom,
+            #819dd41f 50px,
+            #90ade627 100px,
+            #738bbb25 50%,
+            #c3fa9b15 100%);
 }
-.project-details_pha{
+
+.project-details_pha {
     font-size-adjust: .65;
 }
+
 .project-image-detail {
     min-height: 600px;
     width: 100%;
@@ -29,6 +29,7 @@
     border-radius: 10px;
     grid-column: 1;
 }
+
 .project-gallery {
     grid-column: 1;
     margin-top: 1rem;
@@ -36,7 +37,7 @@
 
 .project-gallery h5 {
     margin-bottom: 0.5rem;
-    color:var(--text-color);
+    color: var(--text-color);
     font-size: 1.2rem;
 }
 
@@ -53,13 +54,15 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .project-details {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     grid-row: 1;
-    grid-column:2;
+    grid-column: 2;
 }
+
 .investigators_card {
     background-color: #f0f0f034;
     padding: 1rem;
@@ -82,7 +85,8 @@
 /* Lista en formato grid */
 .investigators_card ul {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Tarjetas simétricas */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    /* Tarjetas simétricas */
     gap: 0.5rem;
 
 }
@@ -101,8 +105,10 @@
     padding: 0.3rem;
     font-weight: 500;
 }
+
 /* Contenedor para entidades y clientes */
-.entity_card, .client_card {
+.entity_card,
+.client_card {
     background-color: #f0f0f034;
     padding: 1rem;
     border-radius: 8px;
@@ -110,7 +116,8 @@
 }
 
 /* Títulos de secciones */
-.entity_card h5, .client_card h5 {
+.entity_card h5,
+.client_card h5 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
     color: #333333d8;
@@ -120,16 +127,19 @@
 }
 
 /* Lista en formato grid */
-.entity_card ul, .client_card ul {
+.entity_card ul,
+.client_card ul {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px)); /* Tarjetas simétricas */
+    grid-template-columns: repeat(auto-fill, minmax(150px));
+    /* Tarjetas simétricas */
     gap: 0.5rem;
     list-style-type: none;
     padding-left: 0;
 }
 
 /* Estilo para cada entidad o cliente */
-.entity_card li, .client_card li {
+.entity_card li,
+.client_card li {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -145,40 +155,50 @@
 
 /* Responsive: En pantallas pequeñas */
 @media (max-width: 600px) {
-    .entity_card ul, .client_card ul {
-        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+
+    .entity_card ul,
+    .client_card ul {
+        grid-template-columns: 1fr;
+        /* Una columna en pantallas pequeñas */
     }
 }
 
 /* Responsive: Asegura que se ve bien en pantallas pequeñas */
 @media (max-width: 600px) {
     .investigators_card ul {
-        grid-template-columns: 1fr; /* En pantallas pequeñas, se muestran en una columna */
+        grid-template-columns: 1fr;
+        /* En pantallas pequeñas, se muestran en una columna */
     }
 }
+
 .project-details h4 {
     font-size: 1.8rem;
-    color:var(--text-color);
+    color: var(--text-color);
     margin-bottom: 0.5rem;
     border-bottom: 2px solid var(--secondary-color);
     padding-bottom: 0.2rem;
 }
+
 .project-details ul {
     list-style-type: none;
     padding-left: 0;
 }
+
 .project-details li {
     margin: 0.5rem 0;
     font-size: 1rem;
     color: #555;
 }
-.gallery_resposive{
-display: none;
+
+.gallery_resposive {
+    display: none;
 }
-@media(max-width: 768px){
+
+@media(max-width: 768px) {
     .project-detail {
-    display: block;
+        display: block;
     }
+
     .project-image {
         min-height: 250px;
         width: 100%;
@@ -189,11 +209,13 @@ display: none;
     .project-gallery {
         display: none;
     }
-    .gallery_resposive{
+
+    .gallery_resposive {
         display: grid;
         grid-column: 1;
         margin-top: 1rem;
     }
+
     .project-gallery-responsive h5 {
         margin-bottom: 0.5rem;
         color: var(--text-color);
