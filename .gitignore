@@ -2,3 +2,6 @@ __pycache__/*
 migrations/*
 CRUD-SIAM/blk-design-system-react-master.zip
 CRUD-SIAM/muse-ant-design-dashboard-main.zip
+SIAM_backend/SIAM_backend/__pycache__/*
+SIAM_backend/SIAM/api/__pycache__/*
+SIAM_backend/SIAM/__pycache__/*
