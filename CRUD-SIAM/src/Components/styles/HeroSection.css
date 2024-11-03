@@ -29,7 +29,9 @@
 }
 
 .hero-title {
-    font-size: 2.5rem; /* Aumentar tamaño del título */
+    font-family: "Staccato 222";
+    font-weight: 100;
+    font-size: 3rem; /* Aumentar tamaño del título */
     color: var(--text-color);
     margin: 1rem 0; /* Espacio alrededor del título */
     transform: translateY(10px);

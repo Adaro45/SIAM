@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import MapFilter from "../Components/MapFilter";
 import MapView from "../Components/MapView";
 import '../Components/styles/MapPage.css';
-import { Layer } from "leaflet";
 
 const MapPage = () => {
     const geoserverUrl = "http://localhost:8080/geoserver";
@@ -45,11 +43,13 @@ const MapPage = () => {
     };
 
     return (
-        <div className="map-container">
-            <aside className="map-layer-filter">
-                <MapFilter layers={layers} onToggleLayer={toggleLayerVisibility} />
-            </aside>
-                <MapView className="map-view" layers={layers} geoserverUrl={geoserverUrl} workspace={workspace} />
+        <div className="map-container-view">
+            <MapView 
+                layers={layers} 
+                onToggleLayer={toggleLayerVisibility} 
+                geoserverUrl={geoserverUrl} 
+                workspace={workspace} 
+            />
         </div>
     );
 };

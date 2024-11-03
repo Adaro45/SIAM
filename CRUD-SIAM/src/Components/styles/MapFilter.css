@@ -1,11 +1,15 @@
 /* src/Components/styles/MapFilter.css */
 .map-filter {
+  position: fixed;
+  z-index: 1000;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.403);
   font-family: Arial, sans-serif;
   max-width: 300px;
+  background-color: #ffffff73;
 }
+
 .map-filter h3 {
   color: var(--text-color);
   font-size: 1.2rem;
@@ -22,9 +26,11 @@
   display: flex;
   align-items: center;
   padding: 0.5rem;
-  background-color: var(--gradient);
+  margin: 0.3rem;
+  background-color: rgba(123, 237, 140, 0.408);
   border-radius: 4px;
   transition: background 0.3s ease;
+
 }
 
 .layer-control:hover {
@@ -41,4 +47,3 @@
   color: var(--text-color);
   cursor: pointer;
 }
-

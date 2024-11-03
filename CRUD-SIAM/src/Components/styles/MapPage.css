@@ -1,17 +1,11 @@
-/* src/Components/styles/MapPage.css */
 .map-container {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .map-layer-filter {
-    width: 250px;
-    background-color: var(--gradient);
-    border-right: 1px solid #ddd;
-    padding: 20px;
-  }
-  
-  .map-view {
-    flex-grow: 1;
-  }
-  
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+
+.map-container {
+  height: 100%; /* Permite que el mapa ocupe el 100% de la altura de su contenedor */
+  width: 100%; /* Asegúrate de que el mapa ocupe todo el ancho */
+  position: relative; /* Permite la superposición */
+}
