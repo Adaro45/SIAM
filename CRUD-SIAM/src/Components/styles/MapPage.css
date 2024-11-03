@@ -1,0 +1,17 @@
+/* src/Components/styles/MapPage.css */
+.map-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .map-layer-filter {
+    width: 250px;
+    background-color: var(--gradient);
+    border-right: 1px solid #ddd;
+    padding: 20px;
+  }
+  
+  .map-view {
+    flex-grow: 1;
+  }
+  

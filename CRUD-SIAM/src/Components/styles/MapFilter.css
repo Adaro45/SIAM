@@ -1,0 +1,44 @@
+/* src/Components/styles/MapFilter.css */
+.map-filter {
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  max-width: 300px;
+}
+.map-filter h3 {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.layers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.layer-control {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--gradient);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.layer-control:hover {
+  background-color: rgba(40, 162, 164, 0.106);
+}
+
+.layer-control input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1.2);
+}
+
+.layer-control label {
+  font-size: 0.7rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+

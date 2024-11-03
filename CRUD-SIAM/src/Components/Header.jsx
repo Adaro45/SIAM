@@ -45,8 +45,10 @@ const closeMenu = () => setMenuOpen(false);
                     <ul className="nav-list">
                         <li className="nav-item"><Link to="/">Inicio</Link></li>
                         <li className="nav-item"><Link to="/projects">Publicaciones</Link></li>
+                        <li className="nav-item"><Link to="/map">Nuestro Mapa</Link></li>
                         <li className="nav-item"><Link to="/historia">Historia</Link></li>
                         <li className="nav-item"><Link to="/contact">Contacto</Link></li>
+
                     </ul>
                 </nav>
                 <div className="hamburger" onClick={() => toggleMenu()}>
