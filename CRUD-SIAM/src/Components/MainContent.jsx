@@ -7,9 +7,9 @@ import FeaturedProjects from './FeaturedProjects';
 const MainContent = () => {
     return (
         <main className="main-content">
-            <header className="institution-header">
+            <section className="institution-header">
                 <HeroSection />
-            </header>
+            </section>
             <section className="institution-present">
                 <Presentacion />
             </section>

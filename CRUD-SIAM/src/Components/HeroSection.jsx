@@ -13,13 +13,12 @@ const HeroSection = () => {
     return (
         <section className="hero-section">
             <div className="hero-content">
-                <img src="/HeroImage.jpeg" alt="Hero" />
                 <div className="text-container">
                     <h1 className="hero-title">Un puente al desarrollo sostenible</h1>
                     <div className="cta-buttons">
                         <CTAButton text="Nuestros Proyectos" link="/projects" />
                         <CTAButton text="Nuestros Historia" link="/historia" />
-                        <CTAButton text="Contáctanos" link="/contact" />
+                        <CTAButton text="Nuestro Mapa" link="/map" />
                     </div>
                 </div>
             </div>

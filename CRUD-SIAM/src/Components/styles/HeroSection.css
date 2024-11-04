@@ -4,15 +4,6 @@
     text-align: center; /* Alinear texto al centro */
 }
 
-.hero-section img {
-    object-fit: fill;
-    object-position: left bottom;
-    height: 650px;
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.15);
-    margin: 1rem auto;
-}
 
 .hero-content {
     display: flex;

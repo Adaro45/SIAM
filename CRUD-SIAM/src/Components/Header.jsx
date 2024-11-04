@@ -6,7 +6,7 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setMenuOpen] = useState(false);
     const isMounted = useRef(false);
-const closeMenu = () => setMenuOpen(false);
+    const closeMenu = () => setMenuOpen(false);
     const toggleMenu = (state) => {
         if (typeof state === 'boolean') {
             setMenuOpen(state);
@@ -45,7 +45,7 @@ const closeMenu = () => setMenuOpen(false);
                     <ul className="nav-list">
                         <li className="nav-item"><Link to="/">Inicio</Link></li>
                         <li className="nav-item"><Link to="/projects">Publicaciones</Link></li>
-                        <li className="nav-item"><Link to="/map">Nuestro Mapa</Link></li>
+                        <li className="nav-item"><Link to="/map">Mapa Provincial</Link></li>
                         <li className="nav-item"><Link to="/historia">Historia</Link></li>
                         <li className="nav-item"><Link to="/contact">Contacto</Link></li>
 
@@ -59,11 +59,13 @@ const closeMenu = () => setMenuOpen(false);
                 {/* Menú que se muestra al hacer clic en el hamburger */}
                 <div className={`overlay ${isMenuOpen ? 'active' : ''}`} onClick={() => toggleMenu(false)}>
                     <div className="hamburger-menu overlay" onClick={(e) => e.stopPropagation()}>
-                        <Link to="/" onClick={closeMenu}><div className="nav-item" >Inicio</div></Link>
-                        <Link to="/projects" onClick={closeMenu}><div className="nav-item">Proyectos</div></Link>
-                        <Link to="/about" onClick={closeMenu}><div className="nav-item">Nosotros</div></Link>
-                        <Link to="/contact" onClick={closeMenu}><div className="nav-item">Contacto</div></Link>
-                </div>
+                        <Link to="/"> <div className="nav-item">Inicio</div></Link>
+                        <Link to="/projects"><div className="nav-item">Publicaciones</div></Link>
+                        <Link to="/map"> <div className="nav-item">Mapa Provincial</div></Link>
+                        <Link to="/historia"> <div className="nav-item">Historia</div></Link>
+                        <Link to="/contact"> <div className="nav-item">Contacto</div></Link>
+
+                    </div>
                 </div>
             </header>
         </>

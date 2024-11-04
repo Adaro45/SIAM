@@ -11,3 +11,8 @@
   --spacing-md: 24px;
   --spacing-lg: 32px;
 }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}

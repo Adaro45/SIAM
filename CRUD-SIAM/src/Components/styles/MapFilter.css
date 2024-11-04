@@ -27,14 +27,14 @@
   align-items: center;
   padding: 0.5rem;
   margin: 0.3rem;
-  background-color: rgba(123, 237, 140, 0.408);
+  background-color:rgba(52, 144, 145, 0.336);
   border-radius: 4px;
   transition: background 0.3s ease;
 
 }
 
 .layer-control:hover {
-  background-color: rgba(40, 162, 164, 0.106);
+  background-color: rgba(153, 218, 219, 0.934);
 }
 
 .layer-control input[type="checkbox"] {
