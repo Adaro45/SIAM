@@ -2,18 +2,17 @@
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual ancho */
-  gap: 20px; /* Espacio entre tarjetas */
 }
 
 /* Ajuste de la tarjeta */
+
 .project-card {
-  display: flex; 
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
-  margin: 0.5rem auto;
+  height: 100%;
   overflow: hidden;
   background: linear-gradient(to bottom right, #5173b706, #66c3eb18 50%, #95ca6f1d);
 

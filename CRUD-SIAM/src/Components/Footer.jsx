@@ -14,20 +14,20 @@ const Footer = () => {
         </ul>
 
         <div className="footer-social">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/ceacCuba/?locale=es_LA" target="_blank" rel="noopener noreferrer">
             <img src="./Facebook icono.jpeg" alt="Facebook" />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/CEAC_Cuba" target="_blank" rel="noopener noreferrer">
             <img src="./Twitter X .png" alt="Twitter" />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          {/* <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
             <img src="./LinkedIn.png" alt="LinkedIn" />
-          </a>
+          </a> */}
         </div>
 
         <div className="footer-contact">
-          <p><strong>Contacto:</strong> ceac@gmail.com | +53 555 5555</p>
-          <p><strong>Dirección:</strong> Cienfuegos, Cuba</p>
+          <p><strong>Contacto:</strong> ceac@ceac.cu | 43965746</p>
+          <p><strong>Dirección:</strong> Apartado Postal 5, Ciudad Nuclear., Cienfuegos, Cuba</p>
         </div>
       </div>
     </footer>

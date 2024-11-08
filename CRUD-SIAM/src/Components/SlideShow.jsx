@@ -8,7 +8,8 @@ const imagePaths = [
     '/images/slideshow/HeroImage.jpeg',
     '/images/slideshow/laguna-guanarocaaa.jpg',
     '/images/slideshow/Paisaje.jpg',
-    '/images/slideshow/PLACACEAC.jpg'
+    '/images/slideshow/PLACACEAC.jpg',
+    '/images/slideshow/FacebookBanner.png'
 ];
 
 const Slideshow = () => {

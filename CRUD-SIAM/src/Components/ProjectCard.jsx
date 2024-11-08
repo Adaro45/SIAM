@@ -36,8 +36,8 @@ const ProjectCard = ({ project }) => {
 
   return (
       <div className='project-card-container'>
-      <div className='project-date'>Fecha: {project.date}</div>
     <div className="project-card" onClick={handleClick}>
+      <div className='project-date'>Fecha: {project.date}</div>
       <div className="project-image-container">
         {imageUrl ? (
           <img src={imageUrl} alt={title} className="project-image" />

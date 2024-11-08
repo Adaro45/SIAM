@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "../Components/styles/ProjectPage.css";
 import ProjectCard from '../Components/ProjectCard';
 import RegionInfo from '../Components/CienfuegosInfo';
+
 const ProjectsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProjects, setFilteredProjects] = useState([]);
@@ -21,6 +22,11 @@ const ProjectsPage = () => {
         const data = await response.json();
         setProjects(data);
         setFilteredProjects(data);
+
+        // Extraer áreas únicas de `inv_area`
+        const uniqueAreas = Array.from(new Set(data.map(project => project.inv_area)));
+        setAreas(uniqueAreas);
+
       } catch (error) {
         setError('Error al obtener los proyectos.');
         console.error('Error al obtener los proyectos:', error);
@@ -34,39 +40,39 @@ const ProjectsPage = () => {
 
   // Manejar cambio en el input de búsqueda
   const handleInputChange = (e) => {
-    const term = e.target.value;
-    setSearchTerm(term);
-    if (term === '') {
-      setFilteredProjects(projects);
-    }
+    setSearchTerm(e.target.value);
+    setCurrentPage(1);
+    handleSearch(e.target.value, selectedArea);
   };
-  
+
   // Filtrar por búsqueda y por área
-  const handleSearch = () => {
+  const handleSearch = (term, area) => {
     const filtered = projects.filter((project) =>
-    project.title.toLowerCase().includes(searchTerm.toLowerCase()) && project.toLowerCase
+      project.title.toLowerCase().includes(term.toLowerCase()) &&
+      (area === '' || project.inv_area === area)
     );
     setFilteredProjects(filtered);
-    setCurrentPage(1);
   };
-  
+
   // Manejar selección del área
   const handleAreaChange = (e) => {
     setSelectedArea(e.target.value);
-    handleSearch(); // Filtrar cuando cambia el área
+    setCurrentPage(1);
+    handleSearch(searchTerm, e.target.value);
   };
+
   // Paginación
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
   const currentProjects = filteredProjects.slice(indexOfFirstProject, indexOfLastProject);
-  
+
   const nextPage = () => setCurrentPage((prev) => prev + 1);
   const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
-  
+
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!projects.length) return <p>No hay proyectos disponibles.</p>;
-  
+
   return (
     <div className="projects-page">
       <div className="header-banner">
@@ -75,7 +81,8 @@ const ProjectsPage = () => {
           <p>Innovación y sostenibilidad para un futuro mejor</p>
         </div>
       </div>
-   <RegionInfo />
+      <RegionInfo />
+      
       {/* Búsqueda y filtro por área */}
       <div className="search-container">
         <input
@@ -88,12 +95,10 @@ const ProjectsPage = () => {
         
         <select value={selectedArea} onChange={handleAreaChange} className="area-select">
           <option value="">Todas las áreas</option>
-          {areas.map((area) => (
-            <option key={area.id} value={area.name}>{area.name}</option>
+          {areas.map((area, index) => (
+            <option key={index} value={area}>{area}</option>
           ))}
         </select>
-
-        <button onClick={handleSearch} className="search-button">Buscar</button>
       </div>
 
       {/* Lista de proyectos */}
