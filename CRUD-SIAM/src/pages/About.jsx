@@ -1,9 +1,8 @@
-// src/pages/AboutPage.jsx
+import HistoryAndResearch from "../Components/HistoryAndResearch";
 const AboutPage = () => {
     return (
       <div>
-        <h2>Sobre Nosotros</h2>
-        <p>Conoce más sobre la misión, visión y valores del centro.</p>
+        <HistoryAndResearch/>
       </div>
     );
   };

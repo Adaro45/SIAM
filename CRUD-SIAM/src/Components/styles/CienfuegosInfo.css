@@ -1,0 +1,32 @@
+.region-info {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem;
+    gap: 2rem;
+    background: linear-gradient(to bottom right, #5173b70e, #66c3eb20 50%, #95ca6f3a);
+}
+
+.region-info .content {
+    text-align: justify;
+}
+
+.region-info h2 {
+    font-size: 1.8rem;
+    color:var(--text-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.region-info p {
+    color: var(--text-color);
+}
+
+.region-info p:last-child {
+    margin-bottom: 0;
+}

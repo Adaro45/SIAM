@@ -1,5 +1,5 @@
-// src/components/Slideshow.jsx
 import React, { useEffect, useState } from 'react';
+import "../Components/styles/Slideshow.css"
 
 const imagePaths = [
     '/images/slideshow/AcreditadoCollage.jpg',
@@ -13,11 +13,16 @@ const imagePaths = [
 
 const Slideshow = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [fade, setFade] = useState(true);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % imagePaths.length);
-        }, 10000); // Cambia cada 1 segundo
+            setFade(false); // Inicia el desvanecimiento
+            setTimeout(() => {
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % imagePaths.length);
+                setFade(true); // Activa la opacidad de nuevo
+            }, 500); // Tiempo de la transición
+        }, 5000); // Cambia cada 10 segundos
 
         return () => clearInterval(intervalId);
     }, []);
@@ -28,7 +33,7 @@ const Slideshow = () => {
                 src={imagePaths[currentIndex]}
                 alt="Slide"
                 className="main_img"
-                style={{ width: '100%' }}
+                style={{ opacity: fade ? 1 : 0.5 }} // Controla la opacidad
             />
         </div>
     );

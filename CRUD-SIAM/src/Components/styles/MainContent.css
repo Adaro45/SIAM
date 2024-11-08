@@ -11,25 +11,6 @@
 }
 /* src/styles/MainContent.css */
 
-.main_img {
-  object-fit: fill; /* O cambia a 'contain' si quieres ver toda la imagen */
-  height: 640px; /* Cambiar a 100vh para ocupar toda la altura de la pantalla */
-  width: 100%; /* Mantener ancho completo */
-  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.15);
-  animation-name: fade;
-  animation-duration: 2s;
-  transition: all 0.5s ease; /* Agregar una transición suave */
-}
-.slideshow-container {
-  margin: auto;
-  position: relative;
-  margin-bottom: 0;
-}
-
-@keyframes fade {
-  from { opacity: 0.2; }
-  to { opacity: 1; }
-}
 
 .institution-header {
   text-align: center;

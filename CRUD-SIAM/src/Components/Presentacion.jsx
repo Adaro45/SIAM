@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/Presentacion.css";
 
 const Presentacion = () => {
-    return (
+    return (<>
         <section className="presentacion-centro">
             <div className="content">
                 <h2>Centro de Estudios Ambientales de Cienfuegos (CEAC)</h2>
@@ -42,6 +42,22 @@ const Presentacion = () => {
                 <img src="./25.png" alt="25 Años del Centro CEAC" />
             </div>
         </section>
+        <section className="descripcion-siam">
+            <h2>Descripción del Sistema de Información Ambiental (SIAM)</h2>
+            <ul>
+                <li>
+                    El Sistema de Información Ambiental (SIAM) del Centro de Estudios Ambientales de Cienfuegos (CEAC) tiene como objetivo centralizar y hacer accesible información ambiental clave de la región de Cienfuegos, Cuba. A través de un diseño intuitivo, el SIAM permite a investigadores, autoridades y al público en general explorar datos geoespaciales y acceder a informes y estudios relevantes.
+                </li>
+                <li>
+                    El portal incluye un mapa interactivo donde los usuarios pueden visualizar capas de información ambiental, facilitando el análisis de aspectos como biodiversidad, calidad del aire y riesgos ambientales. También ofrece un catálogo de datos descargable, una sección de proyectos con detalles sobre investigaciones activas y terminadas, y un repositorio de publicaciones para compartir resultados científicos.
+                </li>
+                <li>
+                    La finalidad del SIAM es optimizar la gestión de la información ambiental, promover la transparencia y fortalecer la toma de decisiones informadas sobre la conservación y uso de los recursos naturales en Cienfuegos. Al reunir la información en un solo lugar y hacerla fácilmente accesible, el SIAM facilita el flujo de conocimiento, mejora la colaboración científica y contribuye al desarrollo sostenible de la región.
+                </li>
+            </ul>
+
+        </section>
+    </>
     );
 };
 

@@ -38,8 +38,8 @@ const Header = () => {
                     <div className={`logo-movement ${isScrolled ? 'scroll' : ''}`}>
                         <img src="/IconCEAC.png" className="logo" />
                     </div>
-                    <h1 className="title">SIAM</h1>
                     <h1 className="titleORG">CEAC</h1>
+                    <h1 className="title">SIAM</h1>
                 </div>
                 <nav className="nav">
                     <ul className="nav-list">

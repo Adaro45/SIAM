@@ -1,0 +1,40 @@
+.history-research {
+    margin: 0.5rem 0.5rem;
+    padding: 1rem;
+    background-color: var(--gradient);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.history-research h2 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.history-research h3 {
+    font-size: 1.4rem;
+    margin-top: 20px;
+}
+
+.history-research p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.history-research ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.history-research ul li {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.history-research strong {
+    color:var(--primary-color);
+}

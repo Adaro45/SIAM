@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../Components/styles/ProjectPage.css";
 import ProjectCard from '../Components/ProjectCard';
-
+import RegionInfo from '../Components/CienfuegosInfo';
 const ProjectsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProjects, setFilteredProjects] = useState([]);
@@ -75,7 +75,7 @@ const ProjectsPage = () => {
           <p>Innovación y sostenibilidad para un futuro mejor</p>
         </div>
       </div>
-
+   <RegionInfo />
       {/* Búsqueda y filtro por área */}
       <div className="search-container">
         <input
