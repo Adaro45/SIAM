@@ -6,37 +6,72 @@ from SIAM.models import Project, Entity
 from SIAM.models import  Measures, Investigator, Resources
 from .serializers import ProjectSerializer, MeasuresSerializer
 from .serializers import InvestigatorSerializer, ResourcesSerializer, EntitySerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.permissions import IsAuthenticated
+from ..permissions import IsAdmin, IsStaffOrAdmin, IsNormalOrHigher
 
 def index(request):
     context = {}
     return render(request, 'index.html', context)
 
 class ProjectView(APIView):
+    permission_classes = [IsNormalOrHigher]  # Todos los roles autenticados pueden acceder
+
     def get(self, request):
         projects = Project.objects.all()
         serializer = ProjectSerializer(projects, many=True)
+        
+        # Filtrar datos según el rol
+        if request.user.role == 'normal':
+            # Limitar la respuesta a los campos básicos para 'normal'
+            for project in serializer.data:
+                project.pop('measures', None)
         return Response(serializer.data)
-    def post(self,request):
+
+    def post(self, request):
+        # Solo los administradores pueden crear proyectos
+        if not request.user.role == 'admin':
+            return Response({"detail": "No tiene permisos para esta acción."}, status=status.HTTP_403_FORBIDDEN)
+        
         deserializer = ProjectSerializer(data=request.data)
-        print(deserializer)
         if deserializer.is_valid():
             deserializer.save()
             return Response(deserializer.data, status=status.HTTP_201_CREATED)
         return Response(deserializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProjectDetailView(APIView):
+    permission_classes = [IsAuthenticated]  # Solo usuarios autenticados pueden acceder
+
     def get(self, request, pk):
         try:
             project = Project.objects.get(pk=pk)
             serializer = ProjectSerializer(project)
+
+            # Limitar los datos mostrados para 'normal' y 'staff'
+            if request.user.role == 'normal':
+                serializer_data = {field: serializer.data[field] for field in ['id', 'title', 'acron', 'date', 'results', 'description', 'inv_area']}
+                return Response(serializer_data)
+
+            elif request.user.role == 'staff':
+                # Proporciona acceso a más información
+                serializer_data = serializer.data
+                serializer_data.pop('measures', None)  # Ocultar ciertos datos a 'staff' si es necesario
+                return Response(serializer_data)
+
+            # Admin recibe todos los datos
             return Response(serializer.data)
+
         except Project.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
     def put(self, request, pk):
+        # Solo admin puede editar
+        if not request.user.role == 'admin':
+            return Response({"detail": "No tiene permisos para esta acción."}, status=status.HTTP_403_FORBIDDEN)
+
         try:
             project = Project.objects.get(pk=pk)
-            deserializer = ProjectDeserializer(project, data=request.data)
+            deserializer = ProjectSerializer(project, data=request.data)
             if deserializer.is_valid():
                 deserializer.save()
                 return Response(deserializer.data)
@@ -45,6 +80,10 @@ class ProjectDetailView(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
     def delete(self, request, pk):
+        # Solo admin puede borrar
+        if not request.user.role == 'admin':
+            return Response({"detail": "No tiene permisos para esta acción."}, status=status.HTTP_403_FORBIDDEN)
+
         try:
             project = Project.objects.get(pk=pk)
             project.delete()

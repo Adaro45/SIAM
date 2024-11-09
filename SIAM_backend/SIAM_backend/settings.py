@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'SIAM',
     'rest_framework',
-    # 'rest_framework_simplejwt.token_blacklist',
+    'rest_framework_simplejwt.token_blacklist',
     'corsheaders'
 ]
 
@@ -135,26 +135,25 @@ MEDIA_URL = '/resources/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# AUTH_USER_MODEL = 'SIAM.CustomUser'
+AUTH_USER_MODEL = 'SIAM.CustomUser'
 
 REST_FRAMEWORK = {
-    # 'DEFAULT_AUTHENTICATION_CLASSES': (
-    #     'rest_framework.authentication.TokenAuthentication',
-    #     'rest_framework.authentication.SessionAuthentication',
-    #     # 'rest_framework_simplejwt.authentication.JWTAuthentication',
-    # ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),  
     'DEFAULT_PERMISSION_CLASSES': (
-        # 'rest_framework.permissions.IsAuthenticated',
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
     ),
+
 }
+
 CORS_ALLOW_ALL_ORIGINS = True
 
 # # Configuración de SimpleJWT
-# from datetime import timedelta
+from datetime import timedelta
 
-# SIMPLE_JWT = {
-#     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # Duración del token de acceso
-#     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-#     'AUTH_HEADER_TYPES': ('Bearer',),
-# }
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # Duración del token de acceso
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}

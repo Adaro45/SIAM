@@ -76,7 +76,9 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = ['id','title','acron','date','results'
                 ,'results','description','princ_img','inv_area','investigators'
                 ,'project_boss','tecnic_boss','leed_entity'
-                ,'financed','entitys','clients','resource'
-                ,'measures']
+                ,'financed','entitys','clients','resource']
 
+class ProjectDetailSerializer(ProjectSerializer):
+    class Meta(ProjectSerializer.Meta):
+        fields = ProjectSerializer.Meta.fields + ['measures']
 

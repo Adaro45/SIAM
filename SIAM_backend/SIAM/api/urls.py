@@ -1,6 +1,7 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 from .views import (
     ProjectView,
@@ -21,6 +22,8 @@ urlpatterns = [
     path('investigadors/', InvestigatorView.as_view()),
     path('entitys/', EntityView.as_view()),
     path('measures/', MeasuresView.as_view()),
-    path('resources/', ResourcesView.as_view())
+    path('resources/', ResourcesView.as_view()),
+    
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

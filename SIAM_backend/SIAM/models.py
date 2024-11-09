@@ -1,16 +1,16 @@
 from django.db import models
-# from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser
 
 
-# class CustomUser(AbstractUser):
-#     ROLE_CHOICES = [
-#         ('normal','Normal'),
-#         ('investigador','Investigator'),
-#         ('admin','Admin'),
-#     ]
-#     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='normal')
-#     def __str__(self):
-#         return self.username
+class CustomUser(AbstractUser):
+    ROLE_CHOICES = [
+        ('normal','Normal'),
+        ('staff','Staff'),
+        ('admin','Admin'),
+    ]
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='normal')
+    def __str__(self):
+        return self.username
 
 class Investigator(models.Model):
     id = models.BigAutoField(primary_key=True)
