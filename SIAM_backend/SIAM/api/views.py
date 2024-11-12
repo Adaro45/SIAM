@@ -18,16 +18,15 @@ def index(request):
 
 class ProjectView(APIView):
     permission_classes = [IsNormalOrHigher]  # Todos los roles autenticados pueden acceder
+    def get_permissions(self):
+        # Permitir acceso sin autenticación para el método GET
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]  # Requiere autenticación para los otros métodos
 
     def get(self, request):
         projects = Project.objects.all()
         serializer = ProjectSerializer(projects, many=True)
-        
-        # Filtrar datos según el rol
-        if request.user.role == 'normal':
-            # Limitar la respuesta a los campos básicos para 'normal'
-            for project in serializer.data:
-                project.pop('measures', None)
         return Response(serializer.data)
 
     def post(self, request):
@@ -43,24 +42,15 @@ class ProjectView(APIView):
 
 class ProjectDetailView(APIView):
     permission_classes = [IsAuthenticated]  # Solo usuarios autenticados pueden acceder
-
+    def get_permissions(self):
+    # Permitir acceso sin autenticación para el método GET
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]  # Requiere autenticación para los otros métodos
     def get(self, request, pk):
         try:
             project = Project.objects.get(pk=pk)
             serializer = ProjectSerializer(project)
-
-            # Limitar los datos mostrados para 'normal' y 'staff'
-            if request.user.role == 'normal':
-                serializer_data = {field: serializer.data[field] for field in ['id', 'title', 'acron', 'date', 'results', 'description', 'inv_area']}
-                return Response(serializer_data)
-
-            elif request.user.role == 'staff':
-                # Proporciona acceso a más información
-                serializer_data = serializer.data
-                serializer_data.pop('measures', None)  # Ocultar ciertos datos a 'staff' si es necesario
-                return Response(serializer_data)
-
-            # Admin recibe todos los datos
             return Response(serializer.data)
 
         except Project.DoesNotExist:

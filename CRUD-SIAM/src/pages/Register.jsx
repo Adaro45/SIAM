@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../Components/styles/Register.css";
 import Identificador from "../Components/Identificador";
+import { useNavigate } from "react-router-dom";
 export default function Register() {
   const [formData, setFormData] = useState({
     username: "",
@@ -9,7 +10,7 @@ export default function Register() {
     password1: "",
     password2: "",
   });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -30,24 +31,16 @@ export default function Register() {
 
     try {
       const response = await axios.post("http://127.0.0.1:8000/SIAM/register/", formData)
-      console.log("Success!", response.data)
-      setSuccessMessage("Registration Successful!")
+      window.scrollTo(0, 0);
+      navigate("/")
+      window.location.reload();
     }
     catch (error) {
-      console.log("Error during registration!", error.response?.data);
-      if (error.response && error.response.data) {
-        Object.keys(error.response.data).forEach(field => {
-          const errorMessages = error.response.data[field];
-          if (errorMessages && errorMessages.length > 0) {
-            setError(errorMessages[0]);
-          }
-        })
-      }
-    }
-    finally {
+      console.error(error);
+        }
+        finally {
       setIsLoading(false)
     }
-
   };
   return (
     <div className="register_container">

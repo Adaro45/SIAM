@@ -4,7 +4,7 @@ import '../Components/styles/ProjectDetail.css';
 
 // Define fetchDataFromApi aquí para evitar errores
 const fetchDataFromApi = async (endpoint) => {
-    const baseUrl = 'http://127.0.0.1:8000/SIAM'; // Ajusta según tu entorno
+    const baseUrl = 'http://127.0.0.1:8000/SIAM'; 
     const response = await fetch(`${baseUrl}/${endpoint}/`);
     console.log(response.json)
     if (!response.ok) {
@@ -26,7 +26,6 @@ const ProjectDetail = () => {
             try {
                 const data = await fetchDataFromApi(`projects/${id}`); // Llama al endpoint con el ID del proyecto
                 if (isMounted) {
-                    // console.log('Proyecto obtenido:', data);
                     setProject(data);
                 }
             } catch (err) {

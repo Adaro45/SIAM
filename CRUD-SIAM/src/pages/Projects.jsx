@@ -17,9 +17,11 @@ const ProjectsPage = () => {
   // Fetch para obtener los proyectos
   useEffect(() => {
     const fetchProjects = async () => {
+      const token = localStorage.getItem("accessToken");
       try {
         const response = await fetch('http://127.0.0.1:8000/SIAM/projects/');
         const data = await response.json();
+        console.log(data);
         setProjects(data);
         setFilteredProjects(data);
 

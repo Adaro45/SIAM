@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "../Components/styles/LogOut.css"
 import Identificador from '../Components/Identificador';
 export default function Logout() {
-    
+
     const [username, setUsername] = useState("")
     const [isLoggedIn, setLoggedIn] = useState(false)
     const navigate = useNavigate()
@@ -50,6 +50,7 @@ export default function Logout() {
                 await axios.post("http://127.0.0.1:8000/SIAM/logout/", { "refresh": refreshToken }, config)
                 localStorage.removeItem("accessToken");
                 localStorage.removeItem("refreshToken");
+                window.scrollTo(0, 0);
                 setLoggedIn(false);
                 setUsername("");
                 navigate("/");
@@ -59,24 +60,22 @@ export default function Logout() {
         catch (error) {
             console.error("Failed to logout", error.response?.data || error.message)
         }
-        if(!isLoggedIn){
-            navigate("/login");
-        }
+
     }
     return (
         <div className='logout_container'>
             {isLoggedIn ? (
                 <>
-                <Identificador/>
+                    <Identificador />
                     <h1 className='logout_title'>Hola, {username} gracias por su visita</h1>
                     <button className='logout_button' onClick={handleLogout}>Logout</button>
 
                 </>
             ) : (
                 <>
-                <Identificador/>
-                <h1 className='logout_title'>Please Login</h1>
-                <button className='logout_button' onClick={handleLogout}>Iniciar Sesion</button>
+                    <Identificador />
+                    <h1 className='logout_title'>Please Login</h1>
+                    <button className='logout_button' onClick={handleLogout}>Iniciar Sesion</button>
                 </>
             )}
         </div>
