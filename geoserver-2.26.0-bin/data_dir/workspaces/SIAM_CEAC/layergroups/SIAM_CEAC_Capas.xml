@@ -1,0 +1,36 @@
+<layerGroup>
+  <id>LayerGroupInfoImpl--12f60ca0:192ea4d4a3a:-7fed</id>
+  <name>SIAM_CEAC_Capas</name>
+  <mode>SINGLE</mode>
+  <title>Layers</title>
+  <workspace>
+    <id>WorkspaceInfoImpl--12f60ca0:192ea4d4a3a:-8000</id>
+  </workspace>
+  <internationalTitle/>
+  <internationalAbstract/>
+  <publishables>
+    <published type="layer">
+      <id>LayerInfoImpl--12f60ca0:192ea4d4a3a:-7ff9</id>
+    </published>
+    <published type="layer">
+      <id>LayerInfoImpl--12f60ca0:192ea4d4a3a:-7fee</id>
+    </published>
+  </publishables>
+  <styles>
+    <style>
+      <id>StyleInfoImpl--570ae188:124761b8d78:-7fe2</id>
+    </style>
+    <style>
+      <id>StyleInfoImpl--570ae188:124761b8d78:-7fdf</id>
+    </style>
+  </styles>
+  <bounds>
+    <minx>-85.40771484375</minx>
+    <maxx>-73.7896728515625</maxx>
+    <miny>19.083251953125</miny>
+    <maxy>23.7908935546875</maxy>
+    <crs>EPSG:4326</crs>
+  </bounds>
+  <dateCreated>2024-11-02 01:03:11.183 UTC</dateCreated>
+  <dateModified>2024-11-02 01:03:49.940 UTC</dateModified>
+</layerGroup>

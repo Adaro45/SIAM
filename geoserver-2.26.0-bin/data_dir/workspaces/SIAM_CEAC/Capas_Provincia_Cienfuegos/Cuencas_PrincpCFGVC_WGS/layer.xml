@@ -1,0 +1,19 @@
+<layer>
+  <name>Cuencas_PrincpCFGVC_WGS</name>
+  <id>LayerInfoImpl-68369d91:192eb5af547:-7fee</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-26dc7620:192f3c1ce84:-7fff</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-68369d91:192eb5af547:-7fef</id>
+  </resource>
+  <queryable>true</queryable>
+  <opaque>true</opaque>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-11-02 05:41:24.689 UTC</dateCreated>
+  <dateModified>2024-11-03 20:58:15.849 UTC</dateModified>
+</layer>

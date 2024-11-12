@@ -1,0 +1,26 @@
+<dataStore>
+  <id>DataStoreInfoImpl-46e0fb6d:192e42a436a:-7ffc</id>
+  <name>Servicio_Vanadino_layers</name>
+  <type>Directory of spatial files (shapefiles)</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl--570ae188:124761b8d78:-7ffd</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="charset">ISO-8859-1</entry>
+    <entry key="filetype">shapefile</entry>
+    <entry key="create spatial index">true</entry>
+    <entry key="memory mapped buffer">false</entry>
+    <entry key="timezone">America/Havana</entry>
+    <entry key="enable spatial index">true</entry>
+    <entry key="namespace">http://www.openplans.org/topp</entry>
+    <entry key="cache and reuse memory maps">true</entry>
+    <entry key="skipScan">true</entry>
+    <entry key="url">file:///media/daro/NMV2/_Entrega Maia/Servicio Vanadio/Datos/_Layers</entry>
+    <entry key="fstype">shape</entry>
+  </connectionParameters>
+  <__default>false</__default>
+  <dateCreated>2024-10-31 20:07:11.289 UTC</dateCreated>
+  <dateModified>2024-10-31 20:07:12.249 UTC</dateModified>
+  <disableOnConnFailure>false</disableOnConnFailure>
+</dataStore>

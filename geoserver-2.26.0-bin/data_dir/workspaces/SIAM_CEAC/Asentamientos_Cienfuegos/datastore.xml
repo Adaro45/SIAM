@@ -1,0 +1,26 @@
+<dataStore>
+  <id>DataStoreInfoImpl-68369d91:192eb5af547:-7ff9</id>
+  <name>Asentamientos_Cienfuegos</name>
+  <type>Shapefile</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl--12f60ca0:192ea4d4a3a:-8000</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="charset">ISO-8859-1</entry>
+    <entry key="filetype">shapefile</entry>
+    <entry key="create spatial index">true</entry>
+    <entry key="memory mapped buffer">false</entry>
+    <entry key="timezone">America/Havana</entry>
+    <entry key="enable spatial index">true</entry>
+    <entry key="namespace">localhost/data/SIAM</entry>
+    <entry key="cache and reuse memory maps">true</entry>
+    <entry key="skipScan">true</entry>
+    <entry key="url">file:///media/daro/NMV2/Disco_Salva/drive-download-20241102T042722Z-001/Capas_Provincia_Cuba/Asentamientos_Cfgos.shp</entry>
+    <entry key="fstype">shape</entry>
+  </connectionParameters>
+  <__default>false</__default>
+  <dateCreated>2024-11-02 05:35:18.697 UTC</dateCreated>
+  <dateModified>2024-11-02 05:35:31.318 UTC</dateModified>
+  <disableOnConnFailure>false</disableOnConnFailure>
+</dataStore>

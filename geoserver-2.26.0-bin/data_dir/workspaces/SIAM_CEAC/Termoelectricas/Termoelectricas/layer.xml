@@ -1,0 +1,17 @@
+<layer>
+  <name>Termoelectricas</name>
+  <id>LayerInfoImpl--12f60ca0:192ea4d4a3a:-7fee</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-26dc7620:192f3c1ce84:-7fb6</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--12f60ca0:192ea4d4a3a:-7fef</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-11-02 00:59:17.445 UTC</dateCreated>
+  <dateModified>2024-11-03 21:14:03.14 UTC</dateModified>
+</layer>

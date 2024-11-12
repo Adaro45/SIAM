@@ -1,0 +1,16 @@
+<layer>
+  <name>Rios_Cfgos_WGS84</name>
+  <id>LayerInfoImpl-68369d91:192eb5af547:-7fe8</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--570ae188:124761b8d78:-7fe3</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-68369d91:192eb5af547:-7fe9</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-11-02 05:42:17.470 UTC</dateCreated>
+</layer>

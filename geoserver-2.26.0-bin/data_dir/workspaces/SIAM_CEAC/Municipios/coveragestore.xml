@@ -1,0 +1,15 @@
+<coverageStore>
+  <id>CoverageStoreInfoImpl--12f60ca0:192ea4d4a3a:-7ff7</id>
+  <name>Municipios</name>
+  <description>Municipios</description>
+  <type>GeoTIFF</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl--12f60ca0:192ea4d4a3a:-8000</id>
+  </workspace>
+  <__default>false</__default>
+  <dateCreated>2024-11-02 00:53:43.529 UTC</dateCreated>
+  <dateModified>2024-11-02 00:53:50.103 UTC</dateModified>
+  <disableOnConnFailure>false</disableOnConnFailure>
+  <url>file:///media/daro/NMV2/Disco_Salva/Otros/municipios.tif</url>
+</coverageStore>

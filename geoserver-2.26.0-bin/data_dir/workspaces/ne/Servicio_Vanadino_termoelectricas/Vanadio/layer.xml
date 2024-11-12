@@ -1,0 +1,16 @@
+<layer>
+  <name>Vanadio</name>
+  <id>LayerInfoImpl-46e0fb6d:192e42a436a:-7fe5</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--570ae188:124761b8d78:-7fdf</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-46e0fb6d:192e42a436a:-7fe6</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-10-31 20:40:33.859 UTC</dateCreated>
+</layer>

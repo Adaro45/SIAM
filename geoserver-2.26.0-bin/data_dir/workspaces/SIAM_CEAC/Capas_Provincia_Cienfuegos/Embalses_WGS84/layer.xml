@@ -1,0 +1,18 @@
+<layer>
+  <name>Embalses_WGS84</name>
+  <id>LayerInfoImpl-68369d91:192eb5af547:-7fec</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-26dc7620:192f3c1ce84:-7fd7</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-68369d91:192eb5af547:-7fed</id>
+  </resource>
+  <opaque>true</opaque>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-11-02 05:41:43.65 UTC</dateCreated>
+  <dateModified>2024-11-03 21:01:02.199 UTC</dateModified>
+</layer>

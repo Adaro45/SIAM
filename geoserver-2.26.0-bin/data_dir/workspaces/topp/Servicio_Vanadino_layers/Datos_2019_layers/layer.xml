@@ -1,0 +1,16 @@
+<layer>
+  <name>Datos_2019_layers</name>
+  <id>LayerInfoImpl-46e0fb6d:192e42a436a:-7ff7</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--570ae188:124761b8d78:-7fdf</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-46e0fb6d:192e42a436a:-7ff8</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-10-31 20:08:52.121 UTC</dateCreated>
+</layer>

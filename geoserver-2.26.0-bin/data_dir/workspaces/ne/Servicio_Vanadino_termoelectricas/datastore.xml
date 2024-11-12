@@ -1,0 +1,26 @@
+<dataStore>
+  <id>DataStoreInfoImpl-46e0fb6d:192e42a436a:-7ffb</id>
+  <name>Servicio_Vanadino_termoelectricas</name>
+  <type>Directory of spatial files (shapefiles)</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl-1c443fee:182c0f3f209:-7ffe</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="charset">ISO-8859-1</entry>
+    <entry key="filetype">shapefile</entry>
+    <entry key="create spatial index">true</entry>
+    <entry key="memory mapped buffer">false</entry>
+    <entry key="timezone">America/Havana</entry>
+    <entry key="enable spatial index">true</entry>
+    <entry key="namespace">https://www.naturalearthdata.com</entry>
+    <entry key="cache and reuse memory maps">true</entry>
+    <entry key="skipScan">true</entry>
+    <entry key="url">file:///media/daro/NMV2/_Entrega Maia/Servicio Vanadio/Datos/_Layers</entry>
+    <entry key="fstype">shape</entry>
+  </connectionParameters>
+  <__default>false</__default>
+  <dateCreated>2024-10-31 20:07:48.906 UTC</dateCreated>
+  <dateModified>2024-10-31 20:07:52.19 UTC</dateModified>
+  <disableOnConnFailure>false</disableOnConnFailure>
+</dataStore>

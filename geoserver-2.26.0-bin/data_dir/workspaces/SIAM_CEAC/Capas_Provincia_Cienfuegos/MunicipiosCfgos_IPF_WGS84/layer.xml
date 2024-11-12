@@ -1,0 +1,17 @@
+<layer>
+  <name>MunicipiosCfgos_IPF_WGS84</name>
+  <id>LayerInfoImpl-68369d91:192eb5af547:-7fea</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-26dc7620:192f3c1ce84:-7fc2</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-68369d91:192eb5af547:-7feb</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-11-02 05:41:58.388 UTC</dateCreated>
+  <dateModified>2024-11-06 17:15:30.242 UTC</dateModified>
+</layer>

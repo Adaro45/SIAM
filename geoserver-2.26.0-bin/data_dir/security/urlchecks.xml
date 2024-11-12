@@ -1,0 +1,9 @@
+<checks>
+  <regex>
+    <name>FrontSIAM</name>
+    <description>localhost</description>
+    <enabled>true</enabled>
+    <regex>http://localhost:5173/</regex>
+  </regex>
+  <enabled>true</enabled>
+</checks>

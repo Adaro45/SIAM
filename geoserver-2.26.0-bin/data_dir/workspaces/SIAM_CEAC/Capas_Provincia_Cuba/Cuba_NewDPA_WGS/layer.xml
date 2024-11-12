@@ -1,0 +1,23 @@
+<layer>
+  <name>Cuba_NewDPA_WGS</name>
+  <id>LayerInfoImpl-68369d91:192eb5af547:-7ffa</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--570ae188:124761b8d78:-7fe3</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl-1c443fee:182c0f3f209:-7fe4</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-68369d91:192eb5af547:-7ffb</id>
+  </resource>
+  <opaque>true</opaque>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-11-02 05:34:21.727 UTC</dateCreated>
+  <dateModified>2024-11-03 20:55:37.698 UTC</dateModified>
+</layer>

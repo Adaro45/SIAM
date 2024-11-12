@@ -1,0 +1,17 @@
+<layer>
+  <name>Viales_Cfgos_WGS84</name>
+  <id>LayerInfoImpl-68369d91:192eb5af547:-7fe6</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-26dc7620:192f3c1ce84:-7fbd</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-68369d91:192eb5af547:-7fe7</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-11-02 05:42:28.683 UTC</dateCreated>
+  <dateModified>2024-11-03 21:11:21.711 UTC</dateModified>
+</layer>
