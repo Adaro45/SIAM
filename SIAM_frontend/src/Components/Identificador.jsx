@@ -5,7 +5,7 @@ const Identificador = () => {
     return (
         <div className='identificador'>
             <div className="identificador_logo_acron">
-            <img src="./public/IconCEAC.png" className="logo_identificador" />
+            <img src="./IconCEAC.png" className="logo_identificador" />
             <h1 className="identificador_title">CEAC</h1>
             </div>
             <div className="identificador_name_phrase">
