@@ -1,10 +1,13 @@
 import './styles/Header.css';
-import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-
+import { useState, useEffect, useRef ,useContext} from 'react';
+import { Link , Navigate, useNavigate} from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setMenuOpen] = useState(false);
+    const [userNameStored, setUserName] = useState(null);
+    const {userName} = useContext(UserContext);
+    const history = useNavigate();
     const isMounted = useRef(false);
     const closeMenu = () => setMenuOpen(false);
     const toggleMenu = (state) => {
@@ -14,8 +17,13 @@ const Header = () => {
             setMenuOpen((prev) => !prev);
         }
     };
-
     useEffect(() => {
+        const token = localStorage.getItem("accessToken");
+        const storedUserName = localStorage.getItem("userName");
+
+        if (token && storedUserName) {
+            setUserName(storedUserName);  // Establece el nombre si el usuario está autenticado
+        }
         const handleScroll = () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             setIsScrolled(scrollTop > 50);
@@ -30,7 +38,9 @@ const Header = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
+            const handleUserClick = () => {
+                    navigate("/logout");
+            }
     return (
         <>
             <header className="header">
@@ -48,7 +58,13 @@ const Header = () => {
                         <li className="nav-item"><Link to="/map">Mapa Provincial</Link></li>
                         <li className="nav-item"><Link to="/historia">Historia</Link></li>
                         <li className="nav-item"><Link to="/contact">Contacto</Link></li>
-
+                        {userNameStored ? (
+                            <li className="nav-item nav_username" onClick={handleUserClick}>
+                                <Link to="/logout"> Bienvenido {userNameStored}</Link>
+                            </li>
+                        ) : (
+                            <li className="nav-item"><Link to="/layout">Inicie Sesion</Link></li>
+                        )}
                     </ul>
                 </nav>
                 <div className="hamburger" onClick={() => toggleMenu()}>
@@ -56,7 +72,6 @@ const Header = () => {
                     <div></div>
                     <div></div>
                 </div>
-                {/* Menú que se muestra al hacer clic en el hamburger */}
                 <div className={`overlay ${isMenuOpen ? 'active' : ''}`} onClick={() => toggleMenu(false)}>
                     <div className="hamburger-menu overlay" onClick={(e) => e.stopPropagation()}>
                         <Link to="/"> <div className="nav-item">Inicio</div></Link>
@@ -64,12 +79,10 @@ const Header = () => {
                         <Link to="/map"> <div className="nav-item">Mapa Provincial</div></Link>
                         <Link to="/historia"> <div className="nav-item">Historia</div></Link>
                         <Link to="/contact"> <div className="nav-item">Contacto</div></Link>
-
                     </div>
                 </div>
             </header>
         </>
     );
 };
-
 export default Header;

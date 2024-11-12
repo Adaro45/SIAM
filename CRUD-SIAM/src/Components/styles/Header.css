@@ -100,7 +100,20 @@
 .nav-item a:hover {
     color: var(--text-color);
 }
-
+.nav_username{
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    
+}
+.nav-username a:hover {
+    color: var(--text-color);
+}
 /* Menú Hamburger para pantallas pequeñas */
 .hamburger {
     display: none;

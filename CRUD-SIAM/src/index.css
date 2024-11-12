@@ -3,6 +3,7 @@
   --secondary-color: #7bed8c;
   --text-color: #264653;
   --gradient: linear-gradient(to bottom right, #5173b74f, #66c3eb69 50%, #95ca6f4e);
+  --dakgradient: linear-gradient(to bottom right, #5173b7e3, #66c3ebc7 50%, #95ca6fcc);
   --font-family: "Roboto";
   --padding-standard: 16px;
   --margin-standard: 24px;

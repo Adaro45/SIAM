@@ -1,0 +1,46 @@
+.identificador{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.712);
+}
+.identificador_logo_acron{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    height: 100px;
+}
+.identificador_title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 125px;
+    color: var(--text-color);
+}
+.logo_identificador{
+    width: 90px;
+    height: 100px;
+    object-fit: scale-down;
+}
+.identificador_name{
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    text-align: center;
+    font-size: 21.8px;
+    margin: 0;
+    padding: 0;
+}
+.identificador_phrase{
+    font-family: 'Staccato 222';
+    color: var(--text-color);
+    text-align: center;
+    font-weight: 100;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
