@@ -3,14 +3,14 @@
 
 ## Descripción del Proyecto
 
-Este proyecto es parte de la **tesis** para la optimización del Sistema de Información Ambiental (SIAM) del Centro de Estudios Ambientales de Cienfuegos, Cuba. La aplicación desarrollada es una **plataforma web** para la gestión y visualización de proyectos ambientales, enfocada en ofrecer una interfaz intuitiva para investigadores y administradores del centro. 
+Este proyecto es parte de la **tesis** para la creación del Sistema de Información Ambiental (SIAM) del Centro de Estudios Ambientales de Cienfuegos(CEAC), Cuba. La aplicación desarrollada es una **plataforma web** para la gestión y visualización de proyectos ambientales, enfocada en ofrecer una interfaz intuitiva para investigadores y administradores del centro. 
 
 El sistema facilita la creación, actualización, y seguimiento de proyectos por parte de los usuarios, además de gestionar la asignación de investigadores y roles en cada uno de ellos.
 
 ## Características Principales
 
 - **Gestión de proyectos**: Creación, edición y eliminación de proyectos.
-- **Relaciones entre usuarios e investigadores**: Los investigadores pueden pertenecer a varios proyectos y algunos pueden actuar como "Jefe de Proyecto".
+- **Investigadores**: Los investigadores pueden pertenecer a varios proyectos y algunos pueden actuar como "Jefe de Proyecto".
 - **Roles diferenciados**:
   - **Investigadores**: Tienen acceso extendido a los detalles de los proyectos.
   - **Usuarios normales**: Acceso limitado a un resumen de los proyectos.
@@ -30,7 +30,7 @@ El sistema facilita la creación, actualización, y seguimiento de proyectos por
 - **Django**: Framework para el desarrollo del backend del proyecto.
 - **Django Rest Framework**: Extensión de Django para la creación de APIs RESTful.
 - **PostgreSQL**: Base de datos relacional utilizada para gestionar la información.
-- **PostGIS**: Extensión de PostgreSQL para trabajar con datos geoespaciales.
+- **GeoServer**: Heramienta para trabajar con datos geoespaciales.
 
 ### **Testing**
 - **Pytest**: Herramienta para pruebas en el backend.
@@ -44,7 +44,8 @@ El sistema facilita la creación, actualización, y seguimiento de proyectos por
 ### Requisitos Previos
 - Python 3.x
 - Node.js y npm
-- PostgreSQL con extensión PostGIS
+- PostgreSQL
+- GeoServer
 
 ### Configuración del Backend
 1. Clona el repositorio:
