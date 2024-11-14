@@ -85,7 +85,7 @@ class ProjectDetailSerializer(ProjectSerializer):
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ("id","username","email")
+        fields = ("id","username","email","role")
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password1 = serializers.CharField(write_only=True)    

@@ -25,7 +25,7 @@ function App() {
 <Header/>
 <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/admin" element={<AdminDashBoard />} />
+          <Route path="/admin/*" element={<AdminDashBoard />} />
           <Route path="/layout" element={<Layout/>} />
           <Route path="/login" element={<LogIn/>} />
           <Route path="/logout" element={<LogOut/>} />

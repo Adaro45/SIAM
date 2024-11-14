@@ -85,6 +85,10 @@ class ProjectDetailView(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
 class EntityView(APIView):
+    def get_permissions(self):
+    # Permitir acceso sin autenticación para el método GET
+        if self.request.method == 'GET':
+            return [AllowAny()]
     def get(self,request):
         entity = Entity.objects.all()
         serializers = EntitySerializer(entity, many=True)
@@ -97,6 +101,10 @@ class EntityView(APIView):
         return Response(deserializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class MeasuresView(APIView):
+    def get_permissions(self):
+    # Permitir acceso sin autenticación para el método GET
+        if self.request.method == 'GET':
+            return [AllowAny()]
     def get(self, request):
         try:
             measures = Measures.objects.all()
@@ -114,6 +122,10 @@ class MeasuresView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ResourcesView(APIView):
+    def get_permissions(self):
+    # Permitir acceso sin autenticación para el método GET
+        if self.request.method == 'GET':
+            return [AllowAny()]
     def get(self, request, *args):
         try:
             resources = Resources.objects.all()
@@ -131,6 +143,10 @@ class ResourcesView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class InvestigatorView(APIView):
+    def get_permissions(self):
+    # Permitir acceso sin autenticación para el método GET
+        if self.request.method == 'GET':
+            return [AllowAny()]
     def get(self, request):
         investigator = Investigator.objects.all()
         serializer = InvestigatorSerializer(investigator, many=True)
@@ -144,6 +160,10 @@ class InvestigatorView(APIView):
         return Response(deserializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class InvestigadorsDetailView(APIView):
+    def get_permissions(self):
+    # Permitir acceso sin autenticación para el método GET
+        if self.request.method == 'GET':
+            return [AllowAny()]
     def get(self, request, pk):
         try:
             investigador = Investigator.objects.get(pk=pk)

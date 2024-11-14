@@ -1,0 +1,16 @@
+.admin_main_container{
+    display: flex;
+    gap: 0.5rem;
+}
+.admin_aside{
+    width: 20%;
+    height: 100vh;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.admin_sec{
+    width: 80%;
+    height: 100vh;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
