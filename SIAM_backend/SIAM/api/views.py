@@ -255,6 +255,15 @@ class UserInfoAPIView(APIView):
             return Response(serializer.data)
         except CustomUser.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+class UserListAPIView(APIView):
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
+    def get(self, request):
+        user = CustomUser.objects.all()
+        serializer = CustomUserSerializer(user, many=True)
+        return Response(serializer.data)
 class UserUpdateAPIView(APIView):
     permission_classes = (IsAuthenticated,)
 
@@ -285,21 +294,49 @@ class UserUpdateAPIView(APIView):
                 return Response({"detail": "Contraseña incorrecta."}, status=status.HTTP_400_BAD_REQUEST)
         except CustomUser.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-class UserDeleteAPIView(APIView):
-    permission_classes = (IsAuthenticated,)
-    def get_permissions(self):
-        if self.request.method == 'DELETE':
-            return [AllowAny()]
-        return [IsAuthenticated()]  # Requiere autenticación para los otros métodos
-    
-    def delete(self, request, username, password):
+class AdminUserUpdateAPIView(APIView):
+    permission_classes = (IsAuthenticated, IsAdmin)  # Aseguramos que solo el admin puede acceder
+
+    def put(self, request, username):
         try:
             user = CustomUser.objects.get(username=username)
-            if user.check_password(password):
+            
+            # Verificar que el usuario autenticado es admin
+            if not request.user.is_staff:
+                return Response({"detail": "No tiene permisos para realizar esta acción."}, status=status.HTTP_403_FORBIDDEN)
+
+            # Si el admin tiene permisos, procesamos la solicitud
+            serializer = CustomUserSerializer(user, data=request.data, partial=True)
+            if serializer.is_valid():
+                # Guardar los datos que vienen en el serializer
+                serializer.save()
+
+                # Si se envía una nueva contraseña, actualízala
+                new_password = request.data.get('new_password')
+                if new_password:
+                    user.set_password(new_password)
+                    user.save()  # Guardar la nueva contraseña
+
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except CustomUser.DoesNotExist:
+            return Response({"detail": "Usuario no encontrado."}, status=status.HTTP_404_NOT_FOUND)
+
+class UserDeleteAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def delete(self, request, username):
+        admin_user = request.user  # Usuario autenticado (admin)
+        # Obtener la contraseña del admin desde el cuerpo de la solicitud
+        admin_password = request.data.get('password')
+        if admin_password and admin_user.check_password(admin_password):
+            try:
+                user = CustomUser.objects.get(username=username)
                 user.delete()
                 return Response(status=status.HTTP_204_NO_CONTENT)
-            else:
-                return Response({"detail": "Contraseña incorrecta."}, status=status.HTTP_400_BAD_REQUEST)
-        except CustomUser.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+            except CustomUser.DoesNotExist:
+                return Response({"detail": "Usuario no encontrado."}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({"detail": "Contraseña incorrecta."}, status=status.HTTP_400_BAD_REQUEST)
+
         
