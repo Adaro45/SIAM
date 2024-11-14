@@ -15,6 +15,8 @@ from .views import (
     UserLoginAPIView,
     UserLogoutAPIView,
     UserInfoAPIView,
+    UserUpdateAPIView,
+    UserDeleteAPIView,
 )
 
 urlpatterns = [ 
@@ -30,8 +32,10 @@ urlpatterns = [
     
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    
-    path('user/', UserInfoAPIView.as_view(), name='user_info'),
+
+    path('user/<str:username>/', UserInfoAPIView.as_view(), name='user_info'),
+    path('user/<str:username>/<str:password>/update/', UserUpdateAPIView.as_view(), name='user_update'),
+    path('user/<str:username>/<str:password>/delete/', UserDeleteAPIView.as_view(), name='user_delete'),
     path('register/', UserRegistrationAPIView.as_view(), name='register'),
     path('login/', UserLoginAPIView.as_view(), name='login'),
     path('logout/',UserLogoutAPIView.as_view(), name='logout')

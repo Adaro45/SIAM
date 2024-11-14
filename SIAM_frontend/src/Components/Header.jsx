@@ -7,7 +7,7 @@ const Header = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [userNameStored, setUserName] = useState(null);
     const {userName} = useContext(UserContext);
-    const history = useNavigate();
+    const navigate = useNavigate();
     const isMounted = useRef(false);
     const closeMenu = () => setMenuOpen(false);
     const toggleMenu = (state) => {
@@ -58,12 +58,12 @@ const Header = () => {
                         <li className="nav-item"><Link to="/map">Mapa Provincial</Link></li>
                         <li className="nav-item"><Link to="/historia">Historia</Link></li>
                         <li className="nav-item"><Link to="/contact">Contacto</Link></li>
-                        {userNameStored ? (
+                        {!userNameStored ? (
+                                <li className="nav-item"><Link to="/layout">Inicie Sesion</Link></li>
+                        ) : (
                             <li className="nav-item nav_username" onClick={handleUserClick}>
                                 <Link to="/logout"> Bienvenido {userNameStored}</Link>
                             </li>
-                        ) : (
-                            <li className="nav-item"><Link to="/layout">Inicie Sesion</Link></li>
                         )}
                     </ul>
                 </nav>

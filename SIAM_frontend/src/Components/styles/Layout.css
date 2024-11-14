@@ -20,7 +20,7 @@
     height: max-content;
     width: max-content;
     margin: auto;
-    padding: 1rem;
+    padding: 0;
     color: var(--text-color);
 }
 
@@ -35,7 +35,10 @@
     color: var(--text-color);
     background: var(--gradient);
 }
-
+.layout_buttons_box{
+    display: flex;
+    gap: 1rem;
+}
 .layout_buttons:hover {
     font-weight: 600;
     transition: all 0.2s ease-in-out;

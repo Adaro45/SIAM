@@ -12,6 +12,8 @@ import LogIn from "./pages/LogIn";
 import Register from "./pages/Register";
 import Layout from "./pages/Layout";
 import LogOut from "./pages/LogOut";
+import UserAccount from "./pages/UserAccount";
+import AdminDashBoard from "./pages/AdminDashBoard";
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import { UserProvider } from "./context/UserContext";
 
@@ -23,9 +25,11 @@ function App() {
 <Header/>
 <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/admin" element={<AdminDashBoard />} />
           <Route path="/layout" element={<Layout/>} />
           <Route path="/login" element={<LogIn/>} />
           <Route path="/logout" element={<LogOut/>} />
+          <Route path="/UserAccount" element={<UserAccount/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:id" element={<ProjectDetail/>}/>

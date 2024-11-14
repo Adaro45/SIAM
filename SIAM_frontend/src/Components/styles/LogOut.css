@@ -14,11 +14,36 @@
     background: var(--gradient);
     align-items: center;
 }
+.logout_buttons{
+    display: flex;
+    gap: 1rem;
+}
 .logout_title{
     height: max-content;
     width: max-content;
     color: var(--text-color);
     padding: 1rem;
+}
+.logout_button_cerrar{
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+    height: max-content;
+    width: 200px;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    background: linear-gradient(to bottom right, #e62f549b, #fc000056 50%, #ff00007b);
+    cursor: pointer; 
+}
+.logout_button_cerrar:hover{
+    font-weight: 600;
+    color : white;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.10);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to bottom right, #e62f54, #fc0000 50%, #ff0000);
 }
 .logout_button{
     border-radius: 20px;

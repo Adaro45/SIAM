@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from "axios"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../Components/styles/LogOut.css"
 import Identificador from '../Components/Identificador';
 export default function Logout() {
@@ -12,35 +12,40 @@ export default function Logout() {
     useEffect(() => {
         const checkLoggedInUser = async () => {
             try {
-                const token = localStorage.getItem("accessToken");
-                if (token) {
+                const userName = localStorage.getItem("userName");
+                const accessToken = localStorage.getItem("accessToken");
+        
+                if (userName && accessToken) {  // Verificar si ambos están en localStorage
                     const config = {
                         headers: {
-                            "Authorization": `Bearer ${token}`
+                            "Authorization": `Bearer ${accessToken}`
                         }
                     };
-                    const response = await axios.get("http://127.0.0.1:8000/SIAM/user/", config)
-                    setLoggedIn(true)
-                    setUsername(response.data.username)
-                }
-                else {
+        
+                    const response = await axios.get(`http://127.0.0.1:8000/SIAM/user/${userName}/`);
+        
+                    setLoggedIn(true);
+                    setUsername(response.data.username);
+                } else {
                     setLoggedIn(false);
                     setUsername("");
                 }
-            }
-            catch (error) {
+            } catch (error) {
                 setLoggedIn(false);
                 setUsername("");
+                console.error("Error fetching user data:", error); // Para mejor diagnóstico de errores
             }
         };
-        checkLoggedInUser()
+        
+        // Llamada inicial a la función
+        checkLoggedInUser();
+        
     }, [])
 
     const handleLogout = async () => {
         try {
             const accessToken = localStorage.getItem("accessToken");
             const refreshToken = localStorage.getItem("refreshToken");
-
             if (accessToken && refreshToken) {
                 const config = {
                     headers: {
@@ -48,8 +53,7 @@ export default function Logout() {
                     }
                 };
                 await axios.post("http://127.0.0.1:8000/SIAM/logout/", { "refresh": refreshToken }, config)
-                localStorage.removeItem("accessToken");
-                localStorage.removeItem("refreshToken");
+                localStorage.clear();
                 window.scrollTo(0, 0);
                 setLoggedIn(false);
                 setUsername("");
@@ -60,6 +64,10 @@ export default function Logout() {
         catch (error) {
             console.error("Failed to logout", error.response?.data || error.message)
         }
+        if (!isLoggedIn) {
+            navigate("/login");
+            window.location.reload();
+        }
 
     }
     return (
@@ -68,14 +76,17 @@ export default function Logout() {
                 <>
                     <Identificador />
                     <h1 className='logout_title'>Hola, {username} gracias por su visita</h1>
-                    <button className='logout_button' onClick={handleLogout}>Logout</button>
+                    <div className="logout_buttons">
+                    <Link to="/userAccount" className="logout_button userAccount">Mi Usuario</Link>
+                    <button className='logout_button_cerrar' onClick={handleLogout}>Logout</button>
+                    </div>
 
                 </>
             ) : (
                 <>
                     <Identificador />
                     <h1 className='logout_title'>Please Login</h1>
-                    <button className='logout_button' onClick={handleLogout}>Iniciar Sesion</button>
+                    <button className='logout_button_cerrar' onClick={handleLogout}>Iniciar Sesion</button>
                 </>
             )}
         </div>

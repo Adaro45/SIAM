@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.generics import GenericAPIView, RetrieveAPIView
 from django.shortcuts import render
-from SIAM.models import Project, Entity
+from SIAM.models import Project, Entity, CustomUser
 from SIAM.models import  Measures, Investigator, Resources
 from .serializers import ProjectSerializer, MeasuresSerializer, CustomUserSerializer, UserRegistrationSerializer, UserLoginSerializer
 from .serializers import InvestigatorSerializer, ResourcesSerializer, EntitySerializer
@@ -42,6 +42,7 @@ class ProjectView(APIView):
 
 class ProjectDetailView(APIView):
     permission_classes = [IsAuthenticated]  # Solo usuarios autenticados pueden acceder
+    
     def get_permissions(self):
     # Permitir acceso sin autenticación para el método GET
         if self.request.method == 'GET':
@@ -219,9 +220,66 @@ class UserLogoutAPIView(GenericAPIView):
         except Exception as e:
             return Response(status= status.HTTP_400_BAD_REQUEST)
 
-class UserInfoAPIView(RetrieveAPIView):
-    permission_classes = (IsAuthenticated,)
+class UserInfoAPIView(APIView):
     serializer_class = CustomUserSerializer
+    permission_classes = (IsAuthenticated,)
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]  # Requiere autenticación para los otros métodos
     
-    def get_object(self):
-        return self.request.user
+    def get(self,request, username):
+        try:
+            user = CustomUser.objects.get(username=username)
+            serializer = CustomUserSerializer(user)
+            return Response(serializer.data)
+        except CustomUser.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+class UserUpdateAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get_permissions(self):
+        if self.request.method == 'PUT':
+            return [AllowAny()]
+        return [IsAuthenticated()]
+
+    def put(self, request, username, password):
+        try:
+            user = CustomUser.objects.get(username=username)
+            if user.check_password(password):
+                # Si la validación de la contraseña actual es correcta, procesar la solicitud
+                serializer = CustomUserSerializer(user, data=request.data, partial=True)
+                if serializer.is_valid():
+                    # Guardar los datos que vienen en el serializer
+                    serializer.save()
+
+                    # Si se envía una nueva contraseña, actualizarla
+                    new_password = request.data.get('new_password')
+                    if new_password:
+                        user.set_password(new_password)
+                        user.save()  # Importante para guardar la nueva contraseña
+
+                    return Response(serializer.data, status=status.HTTP_200_OK)
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response({"detail": "Contraseña incorrecta."}, status=status.HTTP_400_BAD_REQUEST)
+        except CustomUser.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+class UserDeleteAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
+    def get_permissions(self):
+        if self.request.method == 'DELETE':
+            return [AllowAny()]
+        return [IsAuthenticated()]  # Requiere autenticación para los otros métodos
+    
+    def delete(self, request, username, password):
+        try:
+            user = CustomUser.objects.get(username=username)
+            if user.check_password(password):
+                user.delete()
+                return Response(status=status.HTTP_204_NO_CONTENT)
+            else:
+                return Response({"detail": "Contraseña incorrecta."}, status=status.HTTP_400_BAD_REQUEST)
+        except CustomUser.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        

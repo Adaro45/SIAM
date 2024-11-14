@@ -1,0 +1,86 @@
+.user_account_container{
+    border-radius: 20px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+    margin: 0.5rem 1rem;
+    padding: 2rem;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background: var(--gradient);
+    align-items: center;
+    font-family: 'Roboto';
+}
+.identificador {
+    margin-right: 0;
+}
+.user_account_data{
+    border-radius: 20px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: auto;
+    padding: 2rem;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background: var(--gradient);
+    align-items: center;
+}
+.user_title{
+    border-radius: 20px;
+    margin: 1rem;
+    padding: 0.2rem;
+    color: var(--text-color);
+}
+.username{
+    text-align: center;
+    font-weight: 900;
+    color: var(--text-color);
+    border: none;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+    height: max-content;
+    padding: 1rem;
+    text-align: center;
+    color: rgb(1, 30, 41);
+    background: var(--secondary-color);
+}
+.user_account_update{
+    border-radius: 20px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: auto;
+    width: 400px;
+    padding: 2rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background: var(--gradient);
+    align-items: center;
+}
+.user_input{
+    border-radius: 5px;
+    border: none;
+    height: 20px;
+    width: 300px;
+    padding: 0.5rem;
+    padding: 0.8rem;
+    background: #f1f1f1;
+}
+.user_label{
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 1rem;
+}
+.user_message{
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0;
+    color: rgb(255, 0, 0);
+}
