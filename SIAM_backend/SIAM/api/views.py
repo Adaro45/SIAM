@@ -69,7 +69,8 @@ class ProjectDetailView(APIView):
             return Response(deserializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Project.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
+class ProjectDeleteView(APIView):
+    permissions_classes = [IsAdmin]
     def delete(self, request, pk):
         # Solo admin puede borrar
         if not request.user.role == 'admin':

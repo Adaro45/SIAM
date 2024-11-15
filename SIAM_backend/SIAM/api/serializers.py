@@ -58,17 +58,15 @@ class ProjectSerializer(serializers.ModelSerializer):
     entitys = EntitySerializer(many=True)
     clients = EntitySerializer(many=True)
     resource = ResourcesSerializer(many=True)
+    measures = MeasuresSerializer(required=False)
     princ_img = Base64ImageField(required=False)
     class Meta:
         model = Project
         fields = ['id','title','acron','date','results'
                 ,'results','description','princ_img','inv_area','investigators'
                 ,'project_boss','tecnic_boss','leed_entity'
-                ,'financed','entitys','clients','resource']
+                ,'financed','entitys','clients','resource','measures']
 
-class ProjectDetailSerializer(ProjectSerializer):
-    class Meta(ProjectSerializer.Meta):
-        fields = ProjectSerializer.Meta.fields + ['measures']
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
