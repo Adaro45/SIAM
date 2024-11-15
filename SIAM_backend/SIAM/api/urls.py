@@ -7,7 +7,11 @@ from .views import (
     ProjectView,
     ProjectDetailView,
     MeasuresView,
+    MeasuresDetailView,
+    MeasuresDeleteView,
     ResourcesView,
+    ResourcesDetailView,
+    ResourcesDeleteView,
     InvestigadorsDetailView,
     InvestigatorView,
     EntityView,
@@ -19,6 +23,7 @@ from .views import (
     UserDeleteAPIView,
     UserListAPIView,
     AdminUserUpdateAPIView,
+    EntityDetailView,
 )
 
 urlpatterns = [ 
@@ -26,11 +31,19 @@ urlpatterns = [
     path('projects/<int:pk>/', ProjectDetailView.as_view()),
     path('projects/<int:pk>/measures/', MeasuresView.as_view()),
     path('projects/<int:pk>/resources/', ResourcesView.as_view()),
+    
     path('investigadors/<int:pk>/', InvestigadorsDetailView.as_view()),
     path('investigadors/', InvestigatorView.as_view()),
     path('entitys/', EntityView.as_view()),
+    path('entitys/<int:pk>/', EntityDetailView.as_view()),
+    
     path('measures/', MeasuresView.as_view()),
+    path('measures/<int:pk>/', MeasuresDetailView.as_view()),
+    path('measures/<int:pk>/delete/', MeasuresDeleteView.as_view()),
+    
     path('resources/', ResourcesView.as_view()),
+    path('resources/<int:pk>/', ResourcesDetailView.as_view()),
+    path('resources/<int:pk>/delete/', ResourcesDeleteView.as_view()),
     
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
@@ -40,6 +53,7 @@ urlpatterns = [
     path('user/<str:username>/update/', AdminUserUpdateAPIView.as_view(), name='user_update'),
     path('user/<str:username>/<str:password>/update/', UserUpdateAPIView.as_view(), name='user_update'),
     path('user/<str:username>/delete/', UserDeleteAPIView.as_view(), name='user_delete'),
+    
     path('register/', UserRegistrationAPIView.as_view(), name='register'),
     path('login/', UserLoginAPIView.as_view(), name='login'),
     path('logout/',UserLogoutAPIView.as_view(), name='logout')

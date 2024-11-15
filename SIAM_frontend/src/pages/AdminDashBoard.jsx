@@ -5,6 +5,7 @@ import AsideOptions from '../Components/Admin/Components/AsideOptions';
 import UserManagment from '../Components/Admin/pages/UserManagment';
 import Misc from '../Components/Admin/pages/Misc';
 import ProjectManagment from '../Components/Admin/pages/ProjectManagment';
+import MeasuresAndResources from '../Components/Admin/pages/MeasuresAndResources';
 import "../Components/Admin/style/Dashboard.css";
 
 const AdminDashBoard = () => {
@@ -69,6 +70,7 @@ const AdminDashBoard = () => {
           <Route path="usermanagment" element={<UserManagment />} />
           <Route path="misc" element={<Misc />} />
           <Route path="projectmanagment" element={<ProjectManagment />} />
+          <Route path="measuresandresources" element={<MeasuresAndResources />} />
           <Route path="/" element={<h2>Selecciona una opción de administración</h2>} />
         </Routes>
       </section>

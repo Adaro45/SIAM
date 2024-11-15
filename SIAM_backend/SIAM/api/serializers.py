@@ -28,12 +28,6 @@ class MyCustomBase64FileField(Base64FileField):
 
 # Serializador de Investigator
 class InvestigatorSerializer(serializers.ModelSerializer):
-    projects = serializers.SlugRelatedField(
-        slug_field= 'title',
-        queryset = Project.objects.all(),
-        many=True,
-        required=False
-    )
     class Meta:
         model = Investigator
         fields = '__all__'
@@ -43,12 +37,6 @@ class InvestigatorSerializer(serializers.ModelSerializer):
         return value
 
 class EntitySerializer(serializers.ModelSerializer):
-    projects = serializers.SlugRelatedField(
-        slug_field= 'title',
-        queryset = Project.objects.all(),
-        many=True,
-        required=False
-    )
     class Meta:
         model = Entity
         fields ='__all__'
@@ -57,13 +45,13 @@ class MeasuresSerializer(serializers.ModelSerializer):
     measure = MyCustomBase64FileField(required=True)
     class Meta:
         model = Measures
-        fields = ['measure']
+        fields = ['id','measure']
 
 class ResourcesSerializer(serializers.ModelSerializer):
     resource = Base64ImageField(required=False)
     class Meta:
         model = Resources
-        fields = ['title','resource']
+        fields = ['id','title','resource']
 
 class ProjectSerializer(serializers.ModelSerializer):
     investigators = InvestigatorSerializer(many=True)
