@@ -24,7 +24,12 @@ const ProjectDetail = () => {
 
         const fetchProject = async () => {
             try {
-                const data = await fetchDataFromApi(`projects/${id}`); // Llama al endpoint con el ID del proyecto
+                const data = await fetchDataFromApi(`projects/${id}`,{
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Agrega el token
+                    }
+                }); // Llama al endpoint con el ID del proyecto
                 if (isMounted) {
                     setProject(data);
                 }
@@ -64,7 +69,12 @@ const ProjectDetailCard = ({ project }) => {
     useEffect(() => {
         const fetchBossName = async () => {
             try {
-                const response = await fetch(`${baseUrl}/investigadors/${project_boss}/`);
+                const response = await fetch(`${baseUrl}/investigadors/${project_boss}/`,{
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Agrega el token
+                    }
+                });
                 if (response.ok) {
                     const bossData = await response.json();
                     setBossName(bossData.name);
@@ -83,7 +93,12 @@ const ProjectDetailCard = ({ project }) => {
     useEffect(() => {
         const fetchBossName = async () => {
             try {
-                const response = await fetch(`${baseUrl}/investigadors/${tecnic_boss}/`);
+                const response = await fetch(`${baseUrl}/investigadors/${tecnic_boss}/`,{
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Agrega el token
+                    }
+                });
                 if (response.ok) {
                     const tecnicBoss = await response.json();
                     settecnicBossName(tecnicBoss.name);

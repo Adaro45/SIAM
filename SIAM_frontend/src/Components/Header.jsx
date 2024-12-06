@@ -59,7 +59,7 @@ const Header = () => {
                         <li className="nav-item"><Link to="/historia">Historia</Link></li>
                         <li className="nav-item"><Link to="/contact">Contacto</Link></li>
                         {!userNameStored ? (
-                                <li className="nav-item"><Link to="/layout">Inicie Sesion</Link></li>
+                                <li className="nav-item"><Link to="/layout">Iniciar Sesión</Link></li>
                         ) : (
                             <li className="nav-item nav_username" onClick={handleUserClick}>
                                 <Link to="/logout"> Bienvenido {userNameStored}</Link>

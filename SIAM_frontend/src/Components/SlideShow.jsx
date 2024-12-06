@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import "../Components/styles/Slideshow.css"
 
-const imagePaths = [
-    '/images/slideshow/AcreditadoCollage.jpg',
-    '/images/slideshow/CEAC25Azul.jpg',
-    '/images/slideshow/CEACCEN.jpg',
-    '/images/slideshow/HeroImage.jpeg',
-    '/images/slideshow/laguna-guanarocaaa.jpg',
-    '/images/slideshow/Paisaje.jpg',
-    '/images/slideshow/PLACACEAC.jpg',
-    '/images/slideshow/FacebookBanner.png'
+const imagePaths = [//poner resulicion para las imagenes
+    '/images/slideshow/Edificio CEAC.jpg',
 ];
 
 const Slideshow = () => {
