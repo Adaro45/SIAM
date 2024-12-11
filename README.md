@@ -51,3 +51,9 @@ El sistema facilita la creación, actualización, y seguimiento de proyectos por
 1. Clona el repositorio:
    ```bash
    git clone (https://github.com/Adaro45/SIAM.git)
+   cd SIAM_frontend/
+   npm install
+   cd ../SIAM_backend/
+   pip install -r requirements.txt
+   source ../menv/bin/activate
+   python manage.py runserver
