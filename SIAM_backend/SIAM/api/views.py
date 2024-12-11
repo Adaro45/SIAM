@@ -16,7 +16,7 @@ def index(request):
     context = {}
     return render(request, 'index.html', context)
 class ProjectView(APIView):
-    permission_classes = [IsNormalOrHigher]  # Todos los roles autenticados pueden acceder
+    permission_classes = [IsAuthenticated]  # Todos los roles autenticados pueden acceder
     def get_permissions(self):
         # Permitir acceso sin autenticación para el método GET
         if self.request.method == 'GET':
@@ -217,8 +217,11 @@ class ResourcesDeleteView(APIView):
         except Resources.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 class InvestigatorView(APIView):
-    permission_classes = [IsAuthenticated]
-    
+    def get_permissions(self):
+        # Permitir acceso sin autenticación para el método GET
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]  # Requiere autenticación para los otros métodos
     def get(self, request):
         investigator = Investigator.objects.all()
         serializer = InvestigatorSerializer(investigator, many=True)
@@ -231,8 +234,11 @@ class InvestigatorView(APIView):
             return Response(deserializer.data, status=status.HTTP_201_CREATED)
         return Response(deserializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class InvestigadorsDetailView(APIView):
-    permission_classes = [IsAuthenticated]
-    
+    def get_permissions(self):
+        # Permitir acceso sin autenticación para el método GET
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]  # Requiere autenticación para los otros métodos
     def get(self, request, pk):
         try:
             investigador = Investigator.objects.get(pk=pk)

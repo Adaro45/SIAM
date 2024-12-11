@@ -17,12 +17,7 @@ const ProjectCard = ({ project }) => {
   useEffect(() => {
     const fetchBossName = async () => {
       try {
-        const response = await fetch(`${baseUrl}/investigadors/${project_boss}/`,{
-          headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Agrega el token
-          }
-      });
+        const response = await fetch(`${baseUrl}/investigadors/${project_boss}/`);
         if (response.ok) {
           const bossData = await response.json();
           setBossName(bossData.name);
