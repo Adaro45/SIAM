@@ -46,7 +46,7 @@ El sistema facilita la creación, actualización, y seguimiento de proyectos por
 1. Clona el repositorio:
   Utilizando la consola de git bash para todos los casos, recomendable si se clona desde windows
    ```bash
-   git clone (https://github.com/Adaro45/SIAM.git)
+   git clone https://github.com/Adaro45/SIAM.git
    ```
 3. Prepara el Front-End:
    ```bash
