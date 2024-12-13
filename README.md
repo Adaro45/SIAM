@@ -47,6 +47,7 @@ El sistema facilita la creación, actualización, y seguimiento de proyectos por
   Utilizando la consola de git bash para todos los casos, recomendable si se clona desde windows
    ```bash
    git clone https://github.com/Adaro45/SIAM.git
+   cd SIAM/
    ```
 3. Prepara el Front-End:
    ```bash
@@ -56,7 +57,7 @@ El sistema facilita la creación, actualización, y seguimiento de proyectos por
    ```
 4. Prepara el Back-End:
    ```bash
-   cd ../SIAM_backend/
+   cd /SIAM_backend/
    pip install -r requirements.txt
    source ../menv/bin/activate
    python manage.py runserver
