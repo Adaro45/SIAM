@@ -42,6 +42,7 @@ El sistema facilita la creación, actualización, y seguimiento de proyectos por
 - PostgreSQL
 - GeoServer
 - Git
+- pip
 ### Configuración del Backend
 1. Clona el repositorio:
   Utilizando la consola de git bash para todos los casos, recomendable si se clona desde windows
