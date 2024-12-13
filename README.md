@@ -33,32 +33,28 @@ El sistema facilita la creación, actualización, y seguimiento de proyectos por
 - **GeoServer**: Heramienta para trabajar con datos geoespaciales.
 
 ### **Testing**
-- **Pytest**: Herramienta para pruebas en el backend.
-- **Jest**: Biblioteca para pruebas en el frontend.
-
-### **CI/CD**
-- **GitHub Actions / GitLab CI**: Automatización del despliegue y testing continuo.
+- **JMeter**: Para realizar pruebas de carga y estrés.
 
 ## Instalación y Ejecución
-
 ### Requisitos Previos
 - Python 3.x
 - Node.js y npm
 - PostgreSQL
 - GeoServer
-
+- Git
 ### Configuración del Backend
 1. Clona el repositorio:
+  Utilizando la consola de git bash para todos los casos, recomendable si se clona desde windows
    ```bash
    git clone (https://github.com/Adaro45/SIAM.git)
    ```
-2. Prepara el Front-End:
+3. Prepara el Front-End:
    ```bash
    cd SIAM_frontend/
    npm install
    npm run dev
    ```
-3. Prepara el Back-End:
+4. Prepara el Back-End:
    ```bash
    cd ../SIAM_backend/
    pip install -r requirements.txt
